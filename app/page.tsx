@@ -138,9 +138,9 @@ export default function Home() {
               </div>
 
               {/* Desktop Layout */}
-              <div className="hidden md:flex min-h-[500px] relative">
+              <div className="hidden md:grid md:grid-cols-2 gap-8 min-h-[500px] items-center">
                 {/* Left side - Content */}
-                <div className="relative z-20 mx-auto md:mx-0 md:py-12 flex flex-col justify-center max-w-lg bg-white/95 backdrop-blur-sm rounded-lg p-6 my-8">
+                <div className="flex flex-col justify-center">
                   <div className="flex items-center gap-4 mb-8">
                     <Image
                       src="/logo.png"
@@ -158,7 +158,7 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="max-w-lg">
+                  <div>
                     <h2 className="text-3xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h2>
                     <p className="text-lg text-gray-700 leading-relaxed">
                       Version Bravo is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet and Version Bravo Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
@@ -167,14 +167,14 @@ export default function Home() {
                 </div>
 
                 {/* Right side - Hero Image */}
-                <div className="absolute bottom-0 right-0 top-0 z-10 w-[55vw]">
-                  <div className="h-full w-full overflow-hidden bg-gray-100">
+                <div className="flex justify-center items-center">
+                  <div className="w-full max-w-xl rounded-lg overflow-hidden bg-gray-100">
                     <Image
                       src="/hero.png"
                       alt="Version Bravo - Combat Veterans to Founders"
                       width={800}
                       height={600}
-                      className="h-full w-full object-cover"
+                      className="w-full h-auto object-cover"
                       priority
                     />
                   </div>
