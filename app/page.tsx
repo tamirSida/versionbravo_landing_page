@@ -218,7 +218,7 @@ export default function Home() {
                   </div>
                   
                   <button onClick={() => setShowModal(true)} className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-sm md:text-base cursor-pointer" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                    Get Notified
+                    Get Notified When Applications Launch
                   </button>
                 </div>
 
