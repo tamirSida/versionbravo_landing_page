@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Gunplay';
+  src: url('/fonts/gunplay/gunplay%20rg.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gunplay 3D';
+  src: url('/fonts/gunplay/gunplay%203d.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -24,3 +40,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom border utilities */
+.border-l-3 { border-left-width: 3px; }
+.border-r-3 { border-right-width: 3px; }
+.border-t-3 { border-top-width: 3px; }
+.border-b-3 { border-bottom-width: 3px; }
