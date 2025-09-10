@@ -138,9 +138,9 @@ export default function Home() {
               </div>
 
               {/* Desktop Layout */}
-              <div className="hidden md:flex min-h-[500px]">
+              <div className="hidden md:flex min-h-[500px] relative">
                 {/* Left side - Content */}
-                <div className="mx-auto md:mx-0 md:py-12 flex flex-col justify-center max-w-lg">
+                <div className="relative z-20 mx-auto md:mx-0 md:py-12 flex flex-col justify-center max-w-lg bg-white/95 backdrop-blur-sm rounded-lg p-6 my-8">
                   <div className="flex items-center gap-4 mb-8">
                     <Image
                       src="/logo.png"
@@ -167,7 +167,7 @@ export default function Home() {
                 </div>
 
                 {/* Right side - Hero Image */}
-                <div className="absolute bottom-0 right-0 top-0 z-0 w-[45vw]">
+                <div className="absolute bottom-0 right-0 top-0 z-10 w-[55vw]">
                   <div className="h-full w-full overflow-hidden bg-gray-100">
                     <Image
                       src="/hero.png"
