@@ -1,6 +1,10 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [expandedAccelerator, setExpandedAccelerator] = useState(false);
+  const [expandedAlphaBet, setExpandedAlphaBet] = useState(false);
   return (
     <>
       {/* Font Awesome CDN */}
@@ -51,30 +55,30 @@ export default function Home() {
             <div className="relative flex min-h-[500px]">
               {/* Left side - Content */}
               <div className="mx-auto md:mx-0 md:py-12 flex flex-col justify-center max-w-lg">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-4 mb-8">
                   <Image
                     src="/logo.png"
                     alt="Version Bravo Logo"
-                    width={60}
-                    height={60}
+                    width={80}
+                    height={80}
                     className="object-contain"
                     priority
                   />
-                  <div className="text-4xl font-semibold xs:text-5xl lg:text-6xl">
-                    <div className="inline-block text-blue-600" style={{ fontFamily: "'Gunplay', sans-serif" }}>Version Bravo</div>
+                  <div>
+                    <div className="text-4xl font-semibold xs:text-5xl lg:text-6xl">
+                      <div className="inline-block text-black" style={{ fontFamily: "'Gunplay', sans-serif" }}>Version Bravo</div>
+                    </div>
+                    <div className="text-xl font-semibold text-blue-600 mt-1">Frontline to Founders</div>
                   </div>
                 </div>
                 
-                <div className="mt-5 max-w-md">
-                  <div className="text-2xl font-semibold text-black">Frontline to Founders.</div>
-                  <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-                    End-to-end support for Combat Veteran Entrepreneurs from the U.S. and Israel.
+                <div className="max-w-lg">
+                  <h2 className="text-3xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h2>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    Version Bravo is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet and Version Bravo Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
                   </p>
                 </div>
                 
-                <button className="mt-8 inline-block rounded-lg bg-blue-600 px-8 py-3 text-xl font-semibold text-white hover:bg-blue-700 transition-colors max-w-fit" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                  Apply to Alpha-Bet
-                </button>
               </div>
 
               {/* Right side - Hero Image */}
@@ -95,59 +99,75 @@ export default function Home() {
           </div>
 
           <div className="max-w-5xl mx-auto px-4">
-            {/* Our Mission */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-black mb-6" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                Version Bravo is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet and Version Bravo Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
-              </p>
-            </div>
 
-            {/* Programs Overview */}
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              {/* Alpha-Bet Program */}
-              <div className="bg-white border-2 border-blue-500 p-6 hover:shadow-lg transition-shadow">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Alpha-Bet Entrepreneurship School</h3>
-                  <div className="w-full h-0.5 bg-blue-500 mb-4"></div>
-                </div>
-                <p className="text-blue-600 mb-4 font-bold">For the Aspiring Founder.</p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Alpha-Bet is the first step in the Version Bravo journey. The program is purpose-built for combat veterans at the very start of their entrepreneurial journey, whether they have a business idea or are starting from a blank slate. This 10-week online entrepreneurship school provides a hands-on roadmap from concept to company, featuring expert-led workshops, collaborative projects, and culminating in a final pitch to real investors. Our curriculum ranges from ideation strategies to customer discovery to storytelling and business plan formulation.
-                </p>
-              </div>
-
-              {/* Version Bravo Accelerator */}
-              <div className="bg-white border-2 border-blue-500 p-6 hover:shadow-lg transition-shadow">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Version Bravo Accelerator</h3>
-                  <div className="w-full h-0.5 bg-blue-500 mb-4"></div>
-                </div>
-                <p className="text-blue-600 mb-4 font-bold">For the High-Growth Startup.</p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  A venture accelerator investing exclusively in startups founded by elite U.S. and Israeli special operations veterans. The Version Bravo Accelerator is our elite program for early-stage, venture-track companies ready to scale. The 10-week program provides direct investment, targeted mentorship from leading entrepreneurs, and direct access to a network of investors and industry experts. The experience starts and ends with two immersive, two-week bootcamps - one in Israel and one in the U.S.
-                </p>
-              </div>
-            </div>
 
             <hr className="border-gray-300 mb-12" />
 
             {/* Application Information */}
             <div className="mb-16">
-              <p className="text-gray-700 mb-6">
-                Cohort 5 of Version Bravo Accelerator will launch in March 2026 with applications being accepted in December 2025.
-              </p>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 mb-8 font-semibold transition-colors" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                Click Here to be notified when Applications for Cohort 5 of the Version Bravo Accelerator opens.
-              </button>
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Version Bravo Accelerator */}
+                <div className="bg-blue-50 border-l-4 border-blue-600 p-6">
+                  <h3 className="text-xl font-bold text-black mb-3" style={{ fontFamily: "'Gunplay', sans-serif" }}>Version Bravo Accelerator</h3>
+                  <div className="mb-4">
+                    <div className="text-sm text-blue-600 font-semibold mb-1">FOR THE HIGH-GROWTH STARTUP</div>
+                    <div className="text-gray-700 text-sm">Launch: March 2026</div>
+                    <div className="text-gray-700 text-sm">Applications: December 2025</div>
+                  </div>
+                  
+                  <button 
+                    onClick={() => setExpandedAccelerator(!expandedAccelerator)}
+                    className="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 flex items-center"
+                  >
+                    Read More 
+                    <i className={`fas fa-chevron-${expandedAccelerator ? 'up' : 'down'} ml-2`}></i>
+                  </button>
+                  
+                  {expandedAccelerator && (
+                    <div className="mb-4 p-4 bg-white rounded border text-gray-700 text-sm leading-relaxed">
+                      A venture accelerator investing exclusively in startups founded by elite U.S. and Israeli special operations veterans. The Version Bravo Accelerator is our elite program for early-stage, venture-track companies ready to scale. The 10-week program provides direct investment, targeted mentorship from leading entrepreneurs, and direct access to a network of investors and industry experts. The experience starts and ends with two immersive, two-week bootcamps - one in Israel and one in the U.S.
+                    </div>
+                  )}
+                  
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 w-full font-semibold transition-colors" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                    Get Notified
+                  </button>
+                </div>
+
+                {/* Alpha-Bet Program */}
+                <div className="bg-gray-50 border-l-4 border-gray-400 p-6">
+                  <h3 className="text-xl font-bold text-black mb-3" style={{ fontFamily: "'Gunplay', sans-serif" }}>Alpha-Bet School</h3>
+                  <div className="mb-4">
+                    <div className="text-sm text-gray-600 font-semibold mb-1">FOR THE ASPIRING FOUNDER</div>
+                    <div className="text-gray-700 text-sm">Launch: October 16th, 2025</div>
+                    <div className="text-gray-700 text-sm">Applications: Open Now</div>
+                  </div>
+                  
+                  <button 
+                    onClick={() => setExpandedAlphaBet(!expandedAlphaBet)}
+                    className="text-gray-600 hover:text-gray-700 text-sm font-semibold mb-4 flex items-center"
+                  >
+                    Read More 
+                    <i className={`fas fa-chevron-${expandedAlphaBet ? 'up' : 'down'} ml-2`}></i>
+                  </button>
+                  
+                  {expandedAlphaBet && (
+                    <div className="mb-4 p-4 bg-white rounded border text-gray-700 text-sm leading-relaxed">
+                      Alpha-Bet is the first step in the Version Bravo journey. The program is purpose-built for combat veterans at the very start of their entrepreneurial journey, whether they have a business idea or are starting from a blank slate. This 10-week online entrepreneurship school provides a hands-on roadmap from concept to company, featuring expert-led workshops, collaborative projects, and culminating in a final pitch to real investors. Our curriculum ranges from ideation strategies to customer discovery to storytelling and business plan formulation.
+                    </div>
+                  )}
+                  
+                  <button className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 w-full font-semibold transition-colors" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                    Apply Now
+                  </button>
+                </div>
+              </div>
               
-              <p className="text-gray-700 mb-4">
-                The new website is under construction and will launch soon. In the meantime, if you are a combat veteran and an aspiring entrepreneur, please consider applying for our Alpha-Bet Entrepreneurship School which launches on October 16th, 2025.
-              </p>
-              
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 font-semibold transition-colors" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                Apply to Alpha-Bet
-              </button>
+              <div className="mt-8 text-center bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                <p className="text-gray-700 text-sm">
+                  <strong>Note:</strong> The new website is under construction and will launch soon.
+                </p>
+              </div>
             </div>
           </div>
         </main>
