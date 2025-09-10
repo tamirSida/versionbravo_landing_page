@@ -151,6 +151,8 @@ async function addToMondayCom(formData) {
   // Monday.com column mapping based on your actual board structure
   // Different column types require different formats
   const columnValues = JSON.stringify({
+    "name": formData.fullName,
+    "date4": new Date().toISOString().split('T')[0], // Format: YYYY-MM-DD
     "phone_mkvnhsmr": { "phone": formData.phoneNumber, "countryShortName": "US" },
     "email_mkvned8h": { "email": formData.email, "text": formData.email },
     "text_mkvn179r": formData.nationServed,
