@@ -6,7 +6,18 @@ export default function Home() {
   const [expandedCard, setExpandedCard] = useState<'none' | 'accelerator' | 'alphaBet'>('none');
   const [showModal, setShowModal] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
+  const [showApplicationForm, setShowApplicationForm] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phoneNumber: '',
+    email: '',
+    nationServed: '',
+    unit: '',
+    hearAbout: '',
+    entrepreneurshipStatus: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const acceleratorRef = useRef<HTMLDivElement>(null);
   const alphaBetRef = useRef<HTMLDivElement>(null);
 
@@ -24,6 +35,42 @@ export default function Home() {
       }, 100);
     }
   };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('/.netlify/functions/submit-application', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Application submitted successfully!');
+        setShowApplicationForm(false);
+        setFormData({
+          fullName: '',
+          phoneNumber: '',
+          email: '',
+          nationServed: '',
+          unit: '',
+          hearAbout: '',
+          entrepreneurshipStatus: ''
+        });
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      alert('Error submitting application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
       {/* Font Awesome CDN */}
@@ -244,9 +291,9 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-center text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                    Alpha-Bet Website
-                  </a>
+                  <button onClick={() => setShowApplicationForm(true)} className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-sm md:text-base cursor-pointer" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                    Apply Now
+                  </button>
                 </div>
               </div>
               
@@ -257,7 +304,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="bg-gray-100 border-t-4 border-blue-600 mt-8 md:mt-16">
           <div className="max-w-6xl mx-auto px-4 py-6 md:py-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-center md:text-left justify-items-center">
               <div>
                 <h4 className="text-black font-bold mb-3 md:mb-4 text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>PROGRAMS</h4>
                 <div className="text-gray-700 text-sm space-y-2">
@@ -337,6 +384,139 @@ export default function Home() {
               >
                 Close
               </button>
+            </div>
+          </div>
+        )}
+
+        {/* Application Form Modal */}
+        {showApplicationForm && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto" onClick={() => setShowApplicationForm(false)}>
+            <div className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+              <div className="p-6 md:p-8">
+                <div className="mb-6 text-center">
+                  <h3 className="text-2xl md:text-3xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Alpha-Bet School Application</h3>
+                  <p className="text-gray-600">Join the first step in your entrepreneurial journey</p>
+                </div>
+                
+                <form onSubmit={handleFormSubmit} className="space-y-6">
+                  {/* Full Name */}
+                  <div>
+                    <label htmlFor="fullName" className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                    <input
+                      type="text"
+                      id="fullName"
+                      required
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                  </div>
+
+                  {/* Phone Number */}
+                  <div>
+                    <label htmlFor="phoneNumber" className="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+                    <input
+                      type="tel"
+                      id="phoneNumber"
+                      required
+                      value={formData.phoneNumber}
+                      onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                  </div>
+
+                  {/* Nation Served */}
+                  <div>
+                    <label htmlFor="nationServed" className="block text-sm font-semibold text-gray-700 mb-2">Nation Served *</label>
+                    <select
+                      id="nationServed"
+                      required
+                      value={formData.nationServed}
+                      onChange={(e) => setFormData({...formData, nationServed: e.target.value})}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                      <option value="">Select a nation</option>
+                      <option value="United States of America">United States of America</option>
+                      <option value="Israel">Israel</option>
+                    </select>
+                  </div>
+
+                  {/* Unit */}
+                  <div>
+                    <label htmlFor="unit" className="block text-sm font-semibold text-gray-700 mb-2">What Unit did you serve in? *</label>
+                    <input
+                      type="text"
+                      id="unit"
+                      required
+                      value={formData.unit}
+                      onChange={(e) => setFormData({...formData, unit: e.target.value})}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                  </div>
+
+                  {/* How did you hear about us */}
+                  <div>
+                    <label htmlFor="hearAbout" className="block text-sm font-semibold text-gray-700 mb-2">How did you learn about VERSION BRAVO? *</label>
+                    <textarea
+                      id="hearAbout"
+                      required
+                      rows={3}
+                      value={formData.hearAbout}
+                      onChange={(e) => setFormData({...formData, hearAbout: e.target.value})}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                  </div>
+
+                  {/* Entrepreneurship Status */}
+                  <div>
+                    <label htmlFor="entrepreneurshipStatus" className="block text-sm font-semibold text-gray-700 mb-2">What best describes your current status regarding entrepreneurship? *</label>
+                    <select
+                      id="entrepreneurshipStatus"
+                      required
+                      value={formData.entrepreneurshipStatus}
+                      onChange={(e) => setFormData({...formData, entrepreneurshipStatus: e.target.value})}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                      <option value="">Select your status</option>
+                      <option value="I am currently working on a business or startup.">I am currently working on a business or startup.</option>
+                      <option value="I have an idea for a business I want to develop during the program.">I have an idea for a business I want to develop during the program.</option>
+                      <option value="I am interested in entrepreneurship but do not have a specific idea or business yet.">I am interested in entrepreneurship but do not have a specific idea or business yet.</option>
+                    </select>
+                  </div>
+
+                  {/* Submit Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3 pt-6">
+                    <button 
+                      type="button"
+                      onClick={() => setShowApplicationForm(false)}
+                      className="w-full sm:w-auto px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded font-semibold transition-colors"
+                    >
+                      Cancel
+                    </button>
+                    <button 
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full sm:flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded font-semibold transition-colors"
+                      style={{ fontFamily: "'Gunplay', sans-serif" }}
+                    >
+                      {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         )}
