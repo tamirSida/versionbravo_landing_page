@@ -13,8 +13,59 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Version Bravo - Frontline to Founders",
-  description: "An education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel.",
+  title: "Version Bravo - Frontline to Founders | Combat Veteran Entrepreneurship Platform",
+  description: "Version Bravo provides education, acceleration, and venture capital support to Combat Veteran Founders from the U.S. and Israel. Join Alpha-Bet School or apply for our exclusive accelerator program.",
+  keywords: [
+    "combat veterans",
+    "entrepreneurship",
+    "startup accelerator", 
+    "veteran founders",
+    "Alpha-Bet School",
+    "Version Bravo Accelerator",
+    "military entrepreneurship",
+    "veteran business",
+    "startup funding",
+    "Israel US veterans"
+  ],
+  authors: [{ name: "Version Bravo" }],
+  creator: "Version Bravo",
+  publisher: "Version Bravo",
+  openGraph: {
+    title: "Version Bravo - Frontline to Founders",
+    description: "Combat Veteran Entrepreneurship Platform - From Alpha-Bet School to Version Bravo Accelerator",
+    url: "https://versionbravo.com",
+    siteName: "Version Bravo",
+    images: [
+      {
+        url: "/hero.png",
+        width: 1200,
+        height: 630,
+        alt: "Version Bravo - Combat Veterans to Founders",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Version Bravo - Frontline to Founders",
+    description: "Combat Veteran Entrepreneurship Platform - From Alpha-Bet School to Version Bravo Accelerator",
+    images: ["/hero.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-site-verification-code-here',
+  },
 };
 
 export default function RootLayout({

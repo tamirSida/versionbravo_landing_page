@@ -79,6 +79,63 @@ export default function Home() {
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
       />
       
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Version Bravo",
+            "alternateName": "Version Bravo - Frontline to Founders",
+            "url": "https://versionbravo.com",
+            "logo": "https://versionbravo.com/logo.png",
+            "description": "An education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel.",
+            "foundingDate": "2025",
+            "sameAs": [
+              "https://alphabet.versionbravo.com"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": ["US", "IL"]
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "email": "info@versionbravo.com"
+            },
+            "offers": [
+              {
+                "@type": "Service",
+                "name": "Alpha-Bet School",
+                "description": "10-week online entrepreneurship school for combat veterans starting their entrepreneurial journey",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "Version Bravo"
+                },
+                "audience": {
+                  "@type": "Audience",
+                  "audienceType": "Combat Veterans"
+                }
+              },
+              {
+                "@type": "Service", 
+                "name": "Version Bravo Accelerator",
+                "description": "Elite 10-week accelerator program for early-stage, venture-track companies founded by special operations veterans",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "Version Bravo"
+                },
+                "audience": {
+                  "@type": "Audience",
+                  "audienceType": "Combat Veterans"
+                }
+              }
+            ]
+          })
+        }}
+      />
+      
       <div className="min-h-screen bg-white">
         {/* Header */}
         <header className="bg-white border-b-4 border-blue-600 shadow-lg">
@@ -201,12 +258,12 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div>
-                    <h2 className="text-3xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h2>
+                  <section>
+                    <h1 className="text-3xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h1>
                     <p className="text-lg text-gray-700 leading-relaxed">
                       Version Bravo is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet and Version Bravo Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
                     </p>
-                  </div>
+                  </section>
                 </div>
 
                 {/* Right side - Hero Image */}
@@ -232,10 +289,11 @@ export default function Home() {
             <hr className="border-gray-300 mb-12" />
 
             {/* Application Information */}
-            <div className="mb-16">
+            <section className="mb-16">
+              <h2 className="sr-only">Our Programs</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:items-start">
                 {/* Version Bravo Accelerator */}
-                <div ref={acceleratorRef} className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow">
+                <article ref={acceleratorRef} className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow">
                   <h3 className="text-lg md:text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Version Bravo Accelerator</h3>
                   <p className="text-blue-600 mb-4 font-semibold text-sm md:text-base">For the High-Growth Startup</p>
                   
@@ -263,10 +321,10 @@ export default function Home() {
                   <button onClick={() => setShowApplicationForm(true)} className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-sm md:text-base cursor-pointer" style={{ fontFamily: "'Gunplay', sans-serif" }}>
                     Get Notified When Applications Launch
                   </button>
-                </div>
+                </article>
 
                 {/* Alpha-Bet Program */}
-                <div ref={alphaBetRef} className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow">
+                <article ref={alphaBetRef} className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow">
                   <h3 className="text-lg md:text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Alpha-Bet School</h3>
                   <p className="text-blue-600 mb-4 font-semibold text-sm md:text-base">For the Aspiring Founder</p>
                   
@@ -294,10 +352,10 @@ export default function Home() {
                   <a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-center text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>
                     Alpha-Bet Website
                   </a>
-                </div>
+                </article>
               </div>
               
-            </div>
+            </section>
           </div>
         </main>
 
