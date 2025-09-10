@@ -47,33 +47,67 @@ export default function Home() {
           <div className="absolute bottom-8 right-8 w-12 h-12 border-r-3 border-b-3 border-blue-500 opacity-60"></div>
           
           <div className="max-w-5xl mx-auto px-4 py-16">
-            {/* Logo and Title Section */}
-            <div className="text-center mb-16">
-              <div className="w-32 h-32 mx-auto mb-6">
-                <Image
-                  src="/logo.png"
-                  alt="Version Bravo Logo"
-                  width={128}
-                  height={128}
-                  className="w-full h-full object-contain"
-                  priority
-                />
-              </div>
-              
-              <h1 className="text-5xl md:text-7xl font-bold text-black mb-4 tracking-wider" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                VERSION BRAVO
-              </h1>
-              <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-8" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                FRONTLINE TO FOUNDERS
-              </h2>
-              
-              <div className="max-w-4xl mx-auto mb-8">
-                <p className="text-lg text-gray-800 leading-relaxed mb-4">
-                  End-to-end support platform for Combat Veteran Founders from the United States and Israel.
-                </p>
-                <p className="text-blue-700 font-semibold">
-                  Two sequential programs. Two pathways to success. One mission: Transform warriors into industry leaders.
-                </p>
+            {/* Hero Section */}
+            <div className="mb-16">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                {/* Left side - Content */}
+                <div>
+                  <div className="flex items-center gap-4 mb-6">
+                    <Image
+                      src="/logo.png"
+                      alt="Version Bravo Logo"
+                      width={64}
+                      height={64}
+                      className="object-contain"
+                      priority
+                    />
+                    <div>
+                      <h1 className="text-4xl md:text-5xl font-bold text-black tracking-wider" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                        VERSION BRAVO
+                      </h1>
+                      <h2 className="text-xl md:text-2xl font-bold text-blue-600" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                        FRONTLINE TO FOUNDERS
+                      </h2>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-8">
+                    <p className="text-lg text-gray-800 leading-relaxed mb-4">
+                      End-to-end support platform for Combat Veteran Founders from the United States and Israel.
+                    </p>
+                    <p className="text-blue-700 font-semibold">
+                      Two sequential programs. Two pathways to success. One mission: Transform warriors into industry leaders.
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 font-bold tracking-wider transition-colors" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                      <i className="fas fa-graduation-cap mr-2"></i>
+                      ALPHA-BET PROGRAM
+                    </button>
+                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 font-bold tracking-wider transition-colors" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                      <i className="fas fa-bell mr-2"></i>
+                      GET NOTIFIED
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Right side - Hero Image */}
+                <div className="relative">
+                  <Image
+                    src="/hero.png"
+                    alt="Version Bravo Hero"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-contain rounded-lg shadow-lg"
+                    priority
+                  />
+                  {/* Military corner accents */}
+                  <div className="absolute top-4 left-4 w-8 h-8 border-l-3 border-t-3 border-blue-500"></div>
+                  <div className="absolute top-4 right-4 w-8 h-8 border-r-3 border-t-3 border-blue-500"></div>
+                  <div className="absolute bottom-4 left-4 w-8 h-8 border-l-3 border-b-3 border-blue-500"></div>
+                  <div className="absolute bottom-4 right-4 w-8 h-8 border-r-3 border-b-3 border-blue-500"></div>
+                </div>
               </div>
             </div>
 
