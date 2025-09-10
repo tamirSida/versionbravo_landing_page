@@ -3,8 +3,7 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 
 export default function Home() {
-  const [expandedAccelerator, setExpandedAccelerator] = useState(false);
-  const [expandedAlphaBet, setExpandedAlphaBet] = useState(false);
+  const [expandedCard, setExpandedCard] = useState<'none' | 'accelerator' | 'alphaBet'>('none');
   const [showModal, setShowModal] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,20 +11,17 @@ export default function Home() {
   const alphaBetRef = useRef<HTMLDivElement>(null);
 
   const handleToggle = (type: 'accelerator' | 'alphaBet') => {
-    if (type === 'accelerator') {
-      setExpandedAccelerator(!expandedAccelerator);
-      if (!expandedAccelerator) {
-        setTimeout(() => {
-          acceleratorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
-      }
+    if (expandedCard === type) {
+      setExpandedCard('none');
     } else {
-      setExpandedAlphaBet(!expandedAlphaBet);
-      if (!expandedAlphaBet) {
-        setTimeout(() => {
+      setExpandedCard(type);
+      setTimeout(() => {
+        if (type === 'accelerator') {
+          acceleratorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
           alphaBetRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
-      }
+        }
+      }, 100);
     }
   };
   return (
@@ -190,7 +186,7 @@ export default function Home() {
 
             {/* Application Information */}
             <div className="mb-16">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:items-start">
                 {/* Version Bravo Accelerator */}
                 <div ref={acceleratorRef} className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow">
                   <h3 className="text-lg md:text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Version Bravo Accelerator</h3>
@@ -205,12 +201,12 @@ export default function Home() {
                     onClick={() => handleToggle('accelerator')}
                     className="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 flex items-center cursor-pointer"
                   >
-                    {expandedAccelerator ? 'Show Less' : 'Read More'}
-                    <i className={`fas fa-chevron-${expandedAccelerator ? 'up' : 'down'} ml-2 transition-transform duration-200`}></i>
+                    {expandedCard === 'accelerator' ? 'Show Less' : 'Read More'}
+                    <i className={`fas fa-chevron-${expandedCard === 'accelerator' ? 'up' : 'down'} ml-2 transition-transform duration-200`}></i>
                   </button>
                   
                   <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    expandedAccelerator ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
+                    expandedCard === 'accelerator' ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
                   }`}>
                     <div className="bg-gray-50 rounded p-3 md:p-4 text-gray-700 text-sm leading-relaxed">
                       A venture accelerator investing exclusively in startups founded by elite U.S. and Israeli special operations veterans. The Version Bravo Accelerator is our elite program for early-stage, venture-track companies ready to scale. The 10-week program provides direct investment, targeted mentorship from leading entrepreneurs, and direct access to a network of investors and industry experts. The experience starts and ends with two immersive, two-week bootcamps - one in Israel and one in the U.S.
@@ -236,12 +232,12 @@ export default function Home() {
                     onClick={() => handleToggle('alphaBet')}
                     className="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 flex items-center cursor-pointer"
                   >
-                    {expandedAlphaBet ? 'Show Less' : 'Read More'}
-                    <i className={`fas fa-chevron-${expandedAlphaBet ? 'up' : 'down'} ml-2 transition-transform duration-200`}></i>
+                    {expandedCard === 'alphaBet' ? 'Show Less' : 'Read More'}
+                    <i className={`fas fa-chevron-${expandedCard === 'alphaBet' ? 'up' : 'down'} ml-2 transition-transform duration-200`}></i>
                   </button>
                   
                   <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    expandedAlphaBet ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
+                    expandedCard === 'alphaBet' ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
                   }`}>
                     <div className="bg-gray-50 rounded p-3 md:p-4 text-gray-700 text-sm leading-relaxed">
                       Alpha-Bet is the first step in the Version Bravo journey. The program is purpose-built for combat veterans at the very start of their entrepreneurial journey, whether they have a business idea or are starting from a blank slate. This 10-week online entrepreneurship school provides a hands-on roadmap from concept to company, featuring expert-led workshops, collaborative projects, and culminating in a final pitch to real investors. Our curriculum ranges from ideation strategies to customer discovery to storytelling and business plan formulation.
