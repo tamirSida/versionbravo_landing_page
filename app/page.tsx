@@ -191,15 +191,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="bg-gray-100 border-t-4 border-blue-600 mt-16">
           <div className="max-w-6xl mx-auto px-4 py-8">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h4 className="text-black font-bold mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>MISSION COMMAND</h4>
-                <div className="text-gray-700 text-sm space-y-2">
-                  <div>Combat Veteran Entrepreneurs</div>
-                  <div>U.S. & Israel Operations</div>
-                  <div>End-to-End Support Platform</div>
-                </div>
-              </div>
+            <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-black font-bold mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>PROGRAMS</h4>
                 <div className="text-gray-700 text-sm space-y-2">
@@ -209,11 +201,12 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h4 className="text-black font-bold mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>INTEL & COMMS</h4>
-                <div className="text-gray-700 text-sm space-y-2">
-                  <div>Program Updates</div>
-                  <div>Application Status</div>
-                  <div>Mission Briefings</div>
+                <h4 className="text-black font-bold mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>CONTACT</h4>
+                <div className="text-gray-700 text-sm">
+                  <div className="flex items-center gap-2">
+                    <i className="fas fa-envelope text-blue-600"></i>
+                    <a href="mailto:info@versionbravo.com" className="hover:text-blue-600 transition-colors">info@versionbravo.com</a>
+                  </div>
                 </div>
               </div>
             </div>
