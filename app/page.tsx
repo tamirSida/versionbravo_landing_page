@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 export default function Home() {
   const [expandedAccelerator, setExpandedAccelerator] = useState(false);
   const [expandedAlphaBet, setExpandedAlphaBet] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const acceleratorRef = useRef<HTMLDivElement>(null);
   const alphaBetRef = useRef<HTMLDivElement>(null);
 
@@ -54,7 +55,7 @@ export default function Home() {
               <div className="hidden md:flex items-center gap-6 text-blue-700 text-sm font-bold tracking-wider">
                 <a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors">ALPHA-BET PROGRAM</a>
                 <span>|</span>
-                <span>ACCELERATOR</span>
+                <button onClick={() => setShowModal(true)} className="hover:text-blue-800 transition-colors cursor-pointer">ACCELERATOR</button>
                 <span>|</span>
                 <span>CONTACT</span>
               </div>
@@ -196,7 +197,7 @@ export default function Home() {
                 <h4 className="text-black font-bold mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>PROGRAMS</h4>
                 <div className="text-gray-700 text-sm space-y-2">
                   <div><a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Alpha-Bet Entrepreneurship School</a></div>
-                  <div>Version Bravo Accelerator</div>
+                  <div><button onClick={() => setShowModal(true)} className="hover:text-blue-600 transition-colors cursor-pointer">Version Bravo Accelerator</button></div>
                   <div>Venture Capital Support</div>
                 </div>
               </div>
@@ -217,6 +218,33 @@ export default function Home() {
             </div>
           </div>
         </footer>
+        
+        {/* Under Construction Modal */}
+        {showModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setShowModal(false)}>
+            <div className="bg-white rounded-lg p-8 max-w-md mx-4 text-center" onClick={(e) => e.stopPropagation()}>
+              <div className="mb-6">
+                <i className="fas fa-hard-hat text-6xl text-yellow-600 mb-4"></i>
+                <h3 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Site Under Construction</h3>
+                <p className="text-gray-700">
+                  The Version Bravo Accelerator website is currently under development.
+                </p>
+              </div>
+              
+              <div className="space-y-3">
+                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded font-semibold transition-colors" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                  Get Notified When We Launch
+                </button>
+                <button 
+                  onClick={() => setShowModal(false)}
+                  className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded font-semibold transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
