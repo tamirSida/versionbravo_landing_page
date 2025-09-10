@@ -46,72 +46,67 @@ export default function Home() {
           <div className="absolute bottom-8 left-8 w-12 h-12 border-l-3 border-b-3 border-blue-500 opacity-60"></div>
           <div className="absolute bottom-8 right-8 w-12 h-12 border-r-3 border-b-3 border-blue-500 opacity-60"></div>
           
-          <div className="max-w-5xl mx-auto px-4 py-16">
+          <div className="mx-auto max-w-7xl py-16">
             {/* Hero Section */}
-            <div className="mb-16">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Left side - Content */}
-                <div>
-                  <div className="flex items-center gap-4 mb-6">
-                    <Image
-                      src="/logo.png"
-                      alt="Version Bravo Logo"
-                      width={64}
-                      height={64}
-                      className="object-contain"
-                      priority
-                    />
-                    <div>
-                      <h1 className="text-4xl md:text-5xl font-bold text-black tracking-wider" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                        VERSION BRAVO
-                      </h1>
-                      <h2 className="text-xl md:text-2xl font-bold text-blue-600" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                        FRONTLINE TO FOUNDERS
-                      </h2>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-8">
-                    <p className="text-lg text-gray-800 leading-relaxed mb-4">
-                      End-to-end support platform for Combat Veteran Founders from the United States and Israel.
-                    </p>
-                    <p className="text-blue-700 font-semibold">
-                      Two sequential programs. Two pathways to success. One mission: Transform warriors into industry leaders.
-                    </p>
-                  </div>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 font-bold tracking-wider transition-colors" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                      <i className="fas fa-graduation-cap mr-2"></i>
-                      ALPHA-BET PROGRAM
-                    </button>
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 font-bold tracking-wider transition-colors" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                      <i className="fas fa-bell mr-2"></i>
-                      GET NOTIFIED
-                    </button>
+            <div className="relative flex min-h-[500px]">
+              {/* Left side - Content */}
+              <div className="mx-auto md:mx-0 md:py-12 flex flex-col justify-center max-w-lg">
+                <div className="flex items-center gap-3 mb-6">
+                  <Image
+                    src="/logo.png"
+                    alt="Version Bravo Logo"
+                    width={60}
+                    height={60}
+                    className="object-contain"
+                    priority
+                  />
+                  <div className="text-4xl font-semibold xs:text-5xl lg:text-6xl">
+                    <div className="inline-block text-blue-600" style={{ fontFamily: "'Gunplay', sans-serif" }}>Version Bravo</div>
                   </div>
                 </div>
                 
-                {/* Right side - Hero Image */}
-                <div className="relative">
+                <div className="mt-5 max-w-md">
+                  <div className="text-2xl font-semibold text-black">Frontline to Founders.</div>
+                  <p className="mt-4 text-lg text-gray-700 leading-relaxed">
+                    End-to-end support for Combat Veteran Entrepreneurs from the U.S. and Israel.
+                  </p>
+                </div>
+                
+                <button className="mt-8 inline-block rounded-lg bg-blue-600 px-8 py-3 text-xl font-semibold text-white hover:bg-blue-700 transition-colors max-w-fit" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                  Apply to Alpha-Bet
+                </button>
+              </div>
+
+              {/* Right side - Hero Image with Stats */}
+              <div className="absolute bottom-0 right-0 top-0 z-0 hidden w-[45vw] md:block">
+                {/* Statistics Cards */}
+                <div className="absolute bottom-0 left-0 top-0 z-10 flex flex-col items-center justify-center">
+                  <div className="flex flex-col items-center justify-center rounded-2xl bg-blue-50 shadow-lg mb-6 ml-[-70px] w-[170px] py-3 xl:ml-[-115px] xl:w-[230px] xl:py-6">
+                    <div className="mb-1 text-3xl font-bold text-blue-600 xl:text-4xl" style={{ fontFamily: "'Gunplay', sans-serif" }}>100+</div>
+                    <div className="text-sm text-gray-700 text-center">veteran founders<br />supported</div>
+                  </div>
+                  <div className="flex flex-col items-center justify-center rounded-2xl bg-green-50 shadow-lg ml-[-70px] w-[170px] py-3 xl:ml-[-115px] xl:w-[230px] xl:py-6">
+                    <div className="mb-1 text-3xl font-bold text-green-600 xl:text-4xl" style={{ fontFamily: "'Gunplay', sans-serif" }}>$50M+</div>
+                    <div className="text-sm text-gray-700 text-center">capital raised<br />by graduates</div>
+                  </div>
+                </div>
+                
+                {/* Hero Image */}
+                <div className="h-full w-full overflow-hidden bg-gray-100">
                   <Image
                     src="/hero.png"
-                    alt="Version Bravo Hero"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-contain rounded-lg shadow-lg"
+                    alt="Version Bravo - Combat Veterans to Founders"
+                    width={800}
+                    height={600}
+                    className="h-full w-full object-cover"
                     priority
                   />
-                  {/* Military corner accents */}
-                  <div className="absolute top-4 left-4 w-8 h-8 border-l-3 border-t-3 border-blue-500"></div>
-                  <div className="absolute top-4 right-4 w-8 h-8 border-r-3 border-t-3 border-blue-500"></div>
-                  <div className="absolute bottom-4 left-4 w-8 h-8 border-l-3 border-b-3 border-blue-500"></div>
-                  <div className="absolute bottom-4 right-4 w-8 h-8 border-r-3 border-b-3 border-blue-500"></div>
                 </div>
               </div>
             </div>
+          </div>
 
-
+          <div className="max-w-5xl mx-auto px-4">
             {/* Programs Overview */}
             <div className="grid md:grid-cols-2 gap-8 mb-16">
               {/* Alpha-Bet Program */}
@@ -221,7 +216,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
           </div>
         </main>
 
