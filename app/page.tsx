@@ -6,6 +6,7 @@ export default function Home() {
   const [expandedAccelerator, setExpandedAccelerator] = useState(false);
   const [expandedAlphaBet, setExpandedAlphaBet] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
   const acceleratorRef = useRef<HTMLDivElement>(null);
   const alphaBetRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +58,7 @@ export default function Home() {
                 <span>|</span>
                 <button onClick={() => setShowModal(true)} className="hover:text-blue-800 transition-colors cursor-pointer">ACCELERATOR</button>
                 <span>|</span>
-                <span>CONTACT</span>
+                <button onClick={() => setShowContactModal(true)} className="hover:text-blue-800 transition-colors cursor-pointer">CONTACT</button>
               </div>
             </div>
           </div>
@@ -242,6 +243,37 @@ export default function Home() {
                   Close
                 </button>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* Contact Modal */}
+        {showContactModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setShowContactModal(false)}>
+            <div className="bg-white rounded-lg p-8 max-w-md mx-4 text-center" onClick={(e) => e.stopPropagation()}>
+              <div className="mb-6">
+                <i className="fas fa-envelope text-6xl text-blue-600 mb-4"></i>
+                <h3 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Contact Us</h3>
+                <p className="text-gray-700 mb-4">
+                  Get in touch with the Version Bravo team
+                </p>
+              </div>
+              
+              <div className="mb-6">
+                <div className="flex items-center justify-center gap-3 bg-gray-50 p-4 rounded-lg">
+                  <i className="fas fa-envelope text-blue-600"></i>
+                  <a href="mailto:info@versionbravo.com" className="text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                    info@versionbravo.com
+                  </a>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => setShowContactModal(false)}
+                className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded font-semibold transition-colors"
+              >
+                Close
+              </button>
             </div>
           </div>
         )}
