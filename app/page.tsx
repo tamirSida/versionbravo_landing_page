@@ -203,7 +203,7 @@ export default function Home() {
                   
                   <button 
                     onClick={() => handleToggle('accelerator')}
-                    className="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 flex items-center"
+                    className="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 flex items-center cursor-pointer"
                   >
                     {expandedAccelerator ? 'Show Less' : 'Read More'}
                     <i className={`fas fa-chevron-${expandedAccelerator ? 'up' : 'down'} ml-2 transition-transform duration-200`}></i>
@@ -217,7 +217,7 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                  <button onClick={() => setShowModal(true)} className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-sm md:text-base cursor-pointer" style={{ fontFamily: "'Gunplay', sans-serif" }}>
                     Get Notified
                   </button>
                 </div>
@@ -234,7 +234,7 @@ export default function Home() {
                   
                   <button 
                     onClick={() => handleToggle('alphaBet')}
-                    className="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 flex items-center"
+                    className="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 flex items-center cursor-pointer"
                   >
                     {expandedAlphaBet ? 'Show Less' : 'Read More'}
                     <i className={`fas fa-chevron-${expandedAlphaBet ? 'up' : 'down'} ml-2 transition-transform duration-200`}></i>
@@ -267,7 +267,6 @@ export default function Home() {
                 <div className="text-gray-700 text-sm space-y-2">
                   <div><a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Alpha-Bet Entrepreneurship School</a></div>
                   <div><button onClick={() => setShowModal(true)} className="hover:text-blue-600 transition-colors cursor-pointer text-left">Version Bravo Accelerator</button></div>
-                  <div>Venture Capital Support</div>
                 </div>
               </div>
               <div>
