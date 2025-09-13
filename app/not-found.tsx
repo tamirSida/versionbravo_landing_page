@@ -24,7 +24,7 @@ export default function NotFound() {
         </h2>
         
         <p className="text-gray-600 mb-8 max-w-md mx-auto">
-          The page you're looking for has gone dark. Let's get you back to base camp.
+          The page you&apos;re looking for has gone dark. Let&apos;s get you back to base camp.
         </p>
         
         <Link 

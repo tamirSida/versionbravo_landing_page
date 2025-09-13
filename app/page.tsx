@@ -64,7 +64,7 @@ export default function Home() {
       } else {
         throw new Error('Submission failed');
       }
-    } catch (error) {
+    } catch {
       alert('Error submitting application. Please try again.');
     } finally {
       setIsSubmitting(false);
