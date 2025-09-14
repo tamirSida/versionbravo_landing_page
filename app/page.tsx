@@ -153,7 +153,7 @@ export default function Home() {
               
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center gap-6 text-blue-700 text-sm font-bold tracking-wider">
-                <a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors">ALPHA-BET PROGRAM</a>
+                <a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors">ALPHA-BET SCHOOL</a>
                 <span>|</span>
                 <button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-800 transition-colors cursor-pointer">ACCELERATOR</button>
                 <span>|</span>
@@ -174,7 +174,7 @@ export default function Home() {
               <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
                 <div className="flex flex-col space-y-4 text-blue-700 font-bold text-sm tracking-wider">
                   <a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors py-2">
-                    ALPHA-BET PROGRAM
+                    ALPHA-BET SCHOOL
                   </a>
                   <button onClick={() => { setShowApplicationForm(true); setMobileMenuOpen(false); }} className="hover:text-blue-800 transition-colors cursor-pointer text-left py-2">
                     ACCELERATOR
@@ -228,7 +228,7 @@ export default function Home() {
                 <div className="px-4">
                   <h2 className="text-2xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h2>
                   <p className="text-base text-gray-700 leading-relaxed">
-                    VBV (Veterans Backing Veterans) is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet and Version Bravo Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
+                    VBV (Veterans Backing Veterans) is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet Entrepreneurship School and our Venture Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey in both mobile and desktop.
                   </p>
                 </div>
               </div>
@@ -251,7 +251,7 @@ export default function Home() {
                   <section>
                     <h1 className="text-3xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h1>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      VBV (Veterans Backing Veterans) is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet and Version Bravo Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
+                      VBV (Veterans Backing Veterans) is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet Entrepreneurship School and our Venture Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey in both mobile and desktop.
                     </p>
                   </section>
                 </div>
