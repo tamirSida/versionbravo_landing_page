@@ -284,7 +284,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:items-start">
                 {/* Version Bravo Accelerator */}
                 <article ref={acceleratorRef} className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow">
-                  <h3 className="text-lg md:text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Version Bravo Accelerator</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Venture Accelerator</h3>
                   <p className="text-blue-600 mb-4 font-semibold text-sm md:text-base">For the High-Growth Startup</p>
                   
                   <div className="mb-4 md:mb-6 text-sm text-gray-600">
@@ -304,7 +304,7 @@ export default function Home() {
                     expandedCard === 'accelerator' ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
                   }`}>
                     <div className="bg-gray-50 rounded p-3 md:p-4 text-gray-700 text-sm leading-relaxed">
-                      A venture accelerator investing exclusively in startups founded by elite U.S. and Israeli special operations veterans. The Version Bravo Accelerator is our elite program for early-stage, venture-track companies ready to scale. The 10-week program provides direct investment, targeted mentorship from leading entrepreneurs, and direct access to a network of investors and industry experts. The experience starts and ends with two immersive, two-week bootcamps - one in Israel and one in the U.S.
+                      A venture accelerator investing exclusively in startups founded by elite U.S. and Israeli special operations veterans. This accelerator is our elite program for early-stage, venture-track companies ready to scale. The 10-week program provides direct investment, targeted mentorship from leading entrepreneurs, and direct access to a network of investors and industry experts. The experience starts and ends with two immersive, two-week bootcamps - one in Israel and one in the U.S.
                     </div>
                   </div>
                   
@@ -357,7 +357,7 @@ export default function Home() {
                 <h4 className="text-black font-bold mb-3 md:mb-4 text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>PROGRAMS</h4>
                 <div className="text-gray-700 text-sm space-y-2">
                   <div><a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Alpha-Bet Entrepreneurship School</a></div>
-                  <div><button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-600 transition-colors cursor-pointer text-left">Version Bravo Accelerator</button></div>
+                  <div><button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-600 transition-colors cursor-pointer text-left">Venture Accelerator</button></div>
                 </div>
               </div>
               <div>
@@ -517,7 +517,7 @@ export default function Home() {
 
                   {/* How did you hear about us */}
                   <div>
-                    <label htmlFor="hearAbout" className="block text-sm font-semibold text-gray-700 mb-2">How did you learn about VERSION BRAVO? *</label>
+                    <label htmlFor="hearAbout" className="block text-sm font-semibold text-gray-700 mb-2">How did you learn about us? *</label>
                     <textarea
                       id="hearAbout"
                       required
