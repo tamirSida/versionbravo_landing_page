@@ -141,18 +141,14 @@ export default function Home() {
         <header className="bg-white border-b-4 border-blue-600 shadow-lg">
           <div className="max-w-6xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center">
                 <Image
                   src="/logo.png"
                   alt="Version Bravo Logo"
-                  width={60}
-                  height={60}
-                  className="object-contain sm:w-16 sm:h-16"
+                  width={120}
+                  height={120}
+                  className="object-contain"
                 />
-                <div>
-                  <h1 className="text-black text-lg sm:text-2xl font-bold" style={{ fontFamily: "'Gunplay', sans-serif" }}>VERSION BRAVO</h1>
-                  <p className="text-blue-600 text-xs sm:text-sm font-semibold tracking-wider">FRONTLINE TO FOUNDERS</p>
-                </div>
               </div>
               
               {/* Desktop Navigation */}
@@ -376,7 +372,7 @@ export default function Home() {
             </div>
             <div className="border-t border-gray-300 mt-6 md:mt-8 pt-4 md:pt-6 text-center">
               <p className="text-gray-600 text-xs md:text-sm" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                VERSION BRAVO © 2025 | FRONTLINE TO FOUNDERS
+                VBV © 2025 | Veterans Backing Veterans
               </p>
             </div>
           </div>
