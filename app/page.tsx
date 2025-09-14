@@ -102,7 +102,7 @@ export default function Home() {
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "customer service",
-              "email": "info@versionbravo.com"
+              "email": "info@vbv.vc"
             },
             "offers": [
               {
@@ -145,9 +145,9 @@ export default function Home() {
                 <Image
                   src="/logo.png"
                   alt="Version Bravo Logo"
-                  width={40}
-                  height={40}
-                  className="object-contain sm:w-12 sm:h-12"
+                  width={60}
+                  height={60}
+                  className="object-contain sm:w-16 sm:h-16"
                 />
                 <div>
                   <h1 className="text-black text-lg sm:text-2xl font-bold" style={{ fontFamily: "'Gunplay', sans-serif" }}>VERSION BRAVO</h1>
@@ -232,7 +232,7 @@ export default function Home() {
                 <div className="px-4">
                   <h2 className="text-2xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h2>
                   <p className="text-base text-gray-700 leading-relaxed">
-                    Version Bravo is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet and Version Bravo Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
+                    VBV (Veterans Backing Veterans) is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet and Version Bravo Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
                   </p>
                 </div>
               </div>
@@ -241,27 +241,21 @@ export default function Home() {
               <div className="hidden md:grid md:grid-cols-2 gap-8 min-h-[500px] items-center">
                 {/* Left side - Content */}
                 <div className="flex flex-col justify-center">
-                  <div className="flex items-center gap-4 mb-8">
+                  <div className="flex justify-start mb-8">
                     <Image
                       src="/logo.png"
                       alt="Version Bravo Logo"
-                      width={80}
-                      height={80}
+                      width={200}
+                      height={200}
                       className="object-contain"
                       priority
                     />
-                    <div>
-                      <div className="text-4xl font-semibold lg:text-6xl">
-                        <div className="inline-block text-black" style={{ fontFamily: "'Gunplay', sans-serif" }}>Version Bravo</div>
-                      </div>
-                      <div className="text-xl font-semibold text-blue-600 mt-1">Frontline to Founders</div>
-                    </div>
                   </div>
                   
                   <section>
                     <h1 className="text-3xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h1>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      Version Bravo is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet and Version Bravo Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
+                      VBV (Veterans Backing Veterans) is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet and Version Bravo Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
                     </p>
                   </section>
                 </div>
@@ -375,7 +369,7 @@ export default function Home() {
                 <div className="text-gray-700 text-sm">
                   <div className="flex items-center gap-2">
                     <i className="fas fa-envelope text-blue-600"></i>
-                    <a href="mailto:info@versionbravo.com" className="hover:text-blue-600 transition-colors break-all">info@versionbravo.com</a>
+                    <a href="mailto:info@vbv.vc" className="hover:text-blue-600 transition-colors break-all">info@vbv.vc</a>
                   </div>
                 </div>
               </div>
@@ -430,8 +424,8 @@ export default function Home() {
               <div className="mb-6">
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 bg-gray-50 p-3 md:p-4 rounded-lg">
                   <i className="fas fa-envelope text-blue-600 text-sm"></i>
-                  <a href="mailto:info@versionbravo.com" className="text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm md:text-base break-all">
-                    info@versionbravo.com
+                  <a href="mailto:info@vbv.vc" className="text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm md:text-base break-all">
+                    info@vbv.vc
                   </a>
                 </div>
               </div>
