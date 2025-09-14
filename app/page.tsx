@@ -93,7 +93,7 @@ export default function Home() {
             "description": "An education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel.",
             "foundingDate": "2025",
             "sameAs": [
-              "https://alphabet.vbc.vc"
+              "https://alphabet.vbv.vc"
             ],
             "address": {
               "@type": "PostalAddress",
@@ -153,7 +153,7 @@ export default function Home() {
               
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center gap-6 text-blue-700 text-sm font-bold tracking-wider">
-                <a href="https://alphabet.vbc.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors">ALPHA-BET SCHOOL</a>
+                <a href="https://alphabet.vbv.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors">ALPHA-BET SCHOOL</a>
                 <span>|</span>
                 <button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-800 transition-colors cursor-pointer">ACCELERATOR</button>
                 <span>|</span>
@@ -173,7 +173,7 @@ export default function Home() {
             {mobileMenuOpen && (
               <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
                 <div className="flex flex-col space-y-4 text-blue-700 font-bold text-sm tracking-wider">
-                  <a href="https://alphabet.vbc.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors py-2">
+                  <a href="https://alphabet.vbv.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors py-2">
                     ALPHA-BET SCHOOL
                   </a>
                   <button onClick={() => { setShowApplicationForm(true); setMobileMenuOpen(false); }} className="hover:text-blue-800 transition-colors cursor-pointer text-left py-2">
@@ -335,11 +335,11 @@ export default function Home() {
                     expandedCard === 'alphaBet' ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
                   }`}>
                     <div className="bg-gray-50 rounded p-3 md:p-4 text-gray-700 text-sm leading-relaxed">
-                      Alpha-Bet is the first step in the Version Bravo journey. The program is purpose-built for combat veterans at the very start of their entrepreneurial journey, whether they have a business idea or are starting from a blank slate. This 10-week online entrepreneurship school provides a hands-on roadmap from concept to company, featuring expert-led workshops, collaborative projects, and culminating in a final pitch to real investors. Our curriculum ranges from ideation strategies to customer discovery to storytelling and business plan formulation.
+                      The Alpha-Bet program is purpose-built for combat veterans at the very start of their entrepreneurial journey, whether they have a business idea or are starting from a blank slate. This 10-week online entrepreneurship school provides a hands-on roadmap from concept to company, featuring expert-led workshops, collaborative projects, and culminating in a final pitch to real investors. Our curriculum ranges from ideation strategies to customer discovery to storytelling and business plan formulation.
                     </div>
                   </div>
                   
-                  <a href="https://alphabet.vbc.vc" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-center text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                  <a href="https://alphabet.vbv.vc" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-center text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>
                     Alpha-Bet Website
                   </a>
                 </article>
@@ -356,7 +356,7 @@ export default function Home() {
               <div>
                 <h4 className="text-black font-bold mb-3 md:mb-4 text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>PROGRAMS</h4>
                 <div className="text-gray-700 text-sm space-y-2">
-                  <div><a href="https://alphabet.vbc.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Alpha-Bet Entrepreneurship School</a></div>
+                  <div><a href="https://alphabet.vbv.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Alpha-Bet Entrepreneurship School</a></div>
                   <div><button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-600 transition-colors cursor-pointer text-left">Venture Accelerator</button></div>
                 </div>
               </div>
@@ -442,7 +442,7 @@ export default function Home() {
             <div className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
               <div className="p-6 md:p-8">
                 <div className="mb-6 text-center">
-                  <h3 className="text-2xl md:text-3xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Alpha-Bet School Application</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Accelerator Application Notice</h3>
                   <p className="text-gray-600">Join the first step in your entrepreneurial journey</p>
                 </div>
                 
@@ -560,7 +560,7 @@ export default function Home() {
                       className="w-full sm:flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded font-semibold transition-colors"
                       style={{ fontFamily: "'Gunplay', sans-serif" }}
                     >
-                      {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                      {isSubmitting ? 'Submitting...' : 'Submit Request'}
                     </button>
                   </div>
                 </form>
