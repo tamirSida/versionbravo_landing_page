@@ -93,7 +93,7 @@ export default function Home() {
             "description": "An education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel.",
             "foundingDate": "2025",
             "sameAs": [
-              "https://alphabet.versionbravo.com"
+              "https://alphabet.vbc.vc"
             ],
             "address": {
               "@type": "PostalAddress",
@@ -153,7 +153,7 @@ export default function Home() {
               
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center gap-6 text-blue-700 text-sm font-bold tracking-wider">
-                <a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors">ALPHA-BET SCHOOL</a>
+                <a href="https://alphabet.vbc.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors">ALPHA-BET SCHOOL</a>
                 <span>|</span>
                 <button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-800 transition-colors cursor-pointer">ACCELERATOR</button>
                 <span>|</span>
@@ -173,7 +173,7 @@ export default function Home() {
             {mobileMenuOpen && (
               <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
                 <div className="flex flex-col space-y-4 text-blue-700 font-bold text-sm tracking-wider">
-                  <a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors py-2">
+                  <a href="https://alphabet.vbc.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors py-2">
                     ALPHA-BET SCHOOL
                   </a>
                   <button onClick={() => { setShowApplicationForm(true); setMobileMenuOpen(false); }} className="hover:text-blue-800 transition-colors cursor-pointer text-left py-2">
@@ -339,7 +339,7 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-center text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                  <a href="https://alphabet.vbc.vc" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-center text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>
                     Alpha-Bet Website
                   </a>
                 </article>
@@ -356,7 +356,7 @@ export default function Home() {
               <div>
                 <h4 className="text-black font-bold mb-3 md:mb-4 text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>PROGRAMS</h4>
                 <div className="text-gray-700 text-sm space-y-2">
-                  <div><a href="https://alphabet.versionbravo.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Alpha-Bet Entrepreneurship School</a></div>
+                  <div><a href="https://alphabet.vbc.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Alpha-Bet Entrepreneurship School</a></div>
                   <div><button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-600 transition-colors cursor-pointer text-left">Venture Accelerator</button></div>
                 </div>
               </div>
