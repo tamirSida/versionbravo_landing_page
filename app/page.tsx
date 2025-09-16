@@ -86,8 +86,8 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Version Bravo",
-            "alternateName": "Version Bravo - Frontline to Founders",
+            "name": "VBV",
+            "alternateName": "VBV - Veterans Backing Veterans",
             "url": "https://versionbravo.com",
             "logo": "https://versionbravo.com/logo.png",
             "description": "An education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel.",
@@ -196,22 +196,6 @@ export default function Home() {
             <div className="relative">
               {/* Mobile Layout */}
               <div className="md:hidden text-center mb-8">
-                <div className="flex items-center justify-center gap-3 mb-6">
-                  <Image
-                    src="/logo.png"
-                    alt="Version Bravo Logo"
-                    width={60}
-                    height={60}
-                    className="object-contain"
-                    priority
-                  />
-                  <div>
-                    <div className="text-2xl font-semibold">
-                      <div className="inline-block text-black" style={{ fontFamily: "'Gunplay', sans-serif" }}>Version Bravo</div>
-                    </div>
-                    <div className="text-base font-semibold text-blue-600">Frontline to Founders</div>
-                  </div>
-                </div>
                 
                 {/* Mobile Hero Image */}
                 <div className="mb-6 rounded-lg overflow-hidden">

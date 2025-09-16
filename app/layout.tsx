@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://versionbravo.com'),
   title: "VBV - Frontline to Founders | Combat Veteran Entrepreneurship Platform",
-  description: "Version Bravo provides education, acceleration, and venture capital support to Combat Veteran Founders from the U.S. and Israel. Join Alpha-Bet School or apply for our exclusive accelerator program.",
+  description: "VBV provides education, acceleration, and venture capital support to Combat Veteran Founders from the U.S. and Israel. Join Alpha-Bet School or apply for our exclusive accelerator program.",
   keywords: [
     "combat veterans",
     "entrepreneurship",
