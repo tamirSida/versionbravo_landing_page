@@ -235,7 +235,7 @@ export default function Home() {
                   <section>
                     <h1 className="text-3xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h1>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      VBV (Veterans Backing Veterans) is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet Entrepreneurship School and our Venture Accelerator, designed to meet veterans exactly where they are on their entrepreneurial
+                      VBV (Veterans Backing Veterans) is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet Entrepreneurship School and our Venture Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
                     </p>
                   </section>
                 </div>
