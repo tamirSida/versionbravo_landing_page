@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://versionbravo.com'),
-  title: "VBV - Frontline to Founders | Combat Veteran Entrepreneurship Platform",
-  description: "VBV provides education, acceleration, and venture capital support to Combat Veteran Founders from the U.S. and Israel. Join Alpha-Bet School or apply for our exclusive accelerator program.",
+  title: "Vetted - Education | Acceleration | Investment",
+  description: "Vetted provides education, acceleration, and venture capital support to Combat Veteran Founders from the U.S. and Israel. Join Alpha-Bet School or apply for our exclusive accelerator program.",
   keywords: [
     "combat veterans",
     "entrepreneurship",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   creator: "Version Bravo",
   publisher: "Version Bravo",
   openGraph: {
-    title: "Version Bravo - Frontline to Founders",
+    title: "Vetted",
     description: "Combat Veteran Entrepreneurship Platform - From Alpha-Bet School to Version Bravo Accelerator",
     url: "https://versionbravo.com",
     siteName: "Version Bravo",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Version Bravo - Frontline to Founders",
+    title: "Vetted",
     description: "Combat Veteran Entrepreneurship Platform - From Alpha-Bet School to Version Bravo Accelerator",
     images: ["/hero.png"],
   },
@@ -77,6 +77,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Favicons */}
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        
         {/* Web App Meta */}
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#2563eb" />

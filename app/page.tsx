@@ -86,7 +86,7 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "VBV",
+            "name": "Vetted",
             "alternateName": "VBV - Veterans Backing Veterans",
             "url": "https://versionbravo.com",
             "logo": "https://versionbravo.com/logo.png",
@@ -102,7 +102,7 @@ export default function Home() {
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "customer service",
-              "email": "info@vbv.vc"
+              "email": "info@vetted.vc "
             },
             "offers": [
               {
@@ -143,7 +143,7 @@ export default function Home() {
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <Image
-                  src="/logo.png"
+                  src="/no-text-logo.png"
                   alt="Version Bravo Logo"
                   width={120}
                   height={120}
@@ -212,7 +212,7 @@ export default function Home() {
                 <div className="px-4">
                   <h2 className="text-2xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h2>
                   <p className="text-base text-gray-700 leading-relaxed">
-                    VBV (Veterans Backing Veterans) is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet Entrepreneurship School and our Venture Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey
+                    Vetted is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet Entrepreneurship School and Vetted Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey
                   </p>
                 </div>
               </div>
@@ -235,7 +235,7 @@ export default function Home() {
                   <section>
                     <h1 className="text-3xl font-bold text-black mb-4" style={{ fontFamily: "'Gunplay', sans-serif" }}>Our Mission</h1>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                      VBV (Veterans Backing Veterans) is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet Entrepreneurship School and our Venture Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
+                      Vetted is an education, acceleration, and venture capital platform providing end-to-end support to Combat Veteran Founders from the U.S. and Israel. We offer two distinct, sequential programs, Alpha-Bet Entrepreneurship School and Vetted Accelerator, designed to meet veterans exactly where they are on their entrepreneurial journey.
                     </p>
                   </section>
                 </div>
@@ -268,7 +268,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:items-start">
                 {/* Version Bravo Accelerator */}
                 <article ref={acceleratorRef} className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow">
-                  <h3 className="text-lg md:text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Venture Accelerator</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Vetted Accelerator</h3>
                   <p className="text-blue-600 mb-4 font-semibold text-sm md:text-base">For the High-Growth Startup</p>
                   
                   <div className="mb-4 md:mb-6 text-sm text-gray-600">
@@ -341,7 +341,7 @@ export default function Home() {
                 <h4 className="text-black font-bold mb-3 md:mb-4 text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>PROGRAMS</h4>
                 <div className="text-gray-700 text-sm space-y-2">
                   <div><a href="https://alphabet.vbv.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Alpha-Bet Entrepreneurship School</a></div>
-                  <div><button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-600 transition-colors cursor-pointer text-left">Venture Accelerator</button></div>
+                  <div><button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-600 transition-colors cursor-pointer text-left">Vetted Accelerator</button></div>
                 </div>
               </div>
               <div>
@@ -349,14 +349,14 @@ export default function Home() {
                 <div className="text-gray-700 text-sm">
                   <div className="flex items-center gap-2">
                     <i className="fas fa-envelope text-blue-600"></i>
-                    <a href="mailto:info@vbv.vc" className="hover:text-blue-600 transition-colors break-all">info@vbv.vc</a>
+                    <a href="mailto:info@vetted.vc " className="hover:text-blue-600 transition-colors break-all">info@vetted.vc </a>
                   </div>
                 </div>
               </div>
             </div>
             <div className="border-t border-gray-300 mt-6 md:mt-8 pt-4 md:pt-6 text-center">
               <p className="text-gray-600 text-xs md:text-sm" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                VBV © 2025 | Veterans Backing Veterans
+                Vetted © 2025 | Education | Acceleration | Investment
               </p>
             </div>
           </div>
@@ -404,8 +404,8 @@ export default function Home() {
               <div className="mb-6">
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 bg-gray-50 p-3 md:p-4 rounded-lg">
                   <i className="fas fa-envelope text-blue-600 text-sm"></i>
-                  <a href="mailto:info@vbv.vc" className="text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm md:text-base break-all">
-                    info@vbv.vc
+                  <a href="mailto:info@vetted.vc " className="text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm md:text-base break-all">
+                    info@vetted.vc 
                   </a>
                 </div>
               </div>
