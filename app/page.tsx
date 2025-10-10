@@ -102,7 +102,7 @@ export default function Home() {
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "customer service",
-              "email": "info@vetted.vc "
+              "email": "info@thevetted.vc "
             },
             "offers": [
               {
@@ -349,7 +349,7 @@ export default function Home() {
                 <div className="text-gray-700 text-sm">
                   <div className="flex items-center gap-2">
                     <i className="fas fa-envelope text-blue-600"></i>
-                    <a href="mailto:info@vetted.vc " className="hover:text-blue-600 transition-colors break-all">info@vetted.vc </a>
+                    <a href="mailto:info@thevetted.vc " className="hover:text-blue-600 transition-colors break-all">info@thevetted.vc </a>
                   </div>
                 </div>
               </div>
@@ -404,8 +404,8 @@ export default function Home() {
               <div className="mb-6">
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 bg-gray-50 p-3 md:p-4 rounded-lg">
                   <i className="fas fa-envelope text-blue-600 text-sm"></i>
-                  <a href="mailto:info@vetted.vc " className="text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm md:text-base break-all">
-                    info@vetted.vc 
+                  <a href="mailto:info@thevetted.vc " className="text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm md:text-base break-all">
+                    info@thevetted.vc 
                   </a>
                 </div>
               </div>
