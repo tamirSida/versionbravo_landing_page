@@ -155,7 +155,7 @@ export default function Home() {
               <div className="hidden md:flex items-center gap-6 text-blue-700 text-sm font-bold tracking-wider">
                 <a href="https://alphabet.vbv.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors">ALPHA-BET SCHOOL</a>
                 <span>|</span>
-                <button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-800 transition-colors cursor-pointer">ACCELERATOR</button>
+                <a href="https://accelerator.thevetted.vc/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors">ACCELERATOR</a>
                 <span>|</span>
                 <button onClick={() => setShowContactModal(true)} className="hover:text-blue-800 transition-colors cursor-pointer">CONTACT</button>
               </div>
@@ -176,9 +176,9 @@ export default function Home() {
                   <a href="https://alphabet.vbv.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors py-2">
                     ALPHA-BET SCHOOL
                   </a>
-                  <button onClick={() => { setShowApplicationForm(true); setMobileMenuOpen(false); }} className="hover:text-blue-800 transition-colors cursor-pointer text-left py-2">
+                  <a href="https://accelerator.thevetted.vc/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors text-left py-2">
                     ACCELERATOR
-                  </button>
+                  </a>
                   <button onClick={() => { setShowContactModal(true); setMobileMenuOpen(false); }} className="hover:text-blue-800 transition-colors cursor-pointer text-left py-2">
                     CONTACT
                   </button>
@@ -292,9 +292,9 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <button onClick={() => setShowApplicationForm(true)} className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-sm md:text-base cursor-pointer" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                    Get Notified When Applications Launch
-                  </button>
+                  <a href="https://accelerator.thevetted.vc/" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-center text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>
+                    Accelerator Website
+                  </a>
                 </article>
 
                 {/* Alpha-Bet Program */}
@@ -341,7 +341,7 @@ export default function Home() {
                 <h4 className="text-black font-bold mb-3 md:mb-4 text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>PROGRAMS</h4>
                 <div className="text-gray-700 text-sm space-y-2">
                   <div><a href="https://alphabet.vbv.vc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Alpha-Bet Entrepreneurship School</a></div>
-                  <div><button onClick={() => setShowApplicationForm(true)} className="hover:text-blue-600 transition-colors cursor-pointer text-left">Vetted Accelerator</button></div>
+                  <div><a href="https://accelerator.thevetted.vc/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Vetted Accelerator</a></div>
                 </div>
               </div>
               <div>
