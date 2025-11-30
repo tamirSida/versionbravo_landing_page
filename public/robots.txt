@@ -1,4 +1,4 @@
-# robots.txt for Version Bravo
+# robots.txt for The Vetted
 User-agent: *
 Allow: /
 
@@ -6,7 +6,7 @@ Allow: /
 Disallow: /.netlify/
 
 # Sitemap location
-Sitemap: https://versionbravo.com/sitemap.xml
+Sitemap: https://thevetted.vc/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1

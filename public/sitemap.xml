@@ -4,18 +4,18 @@
   
   <!-- Main Page -->
   <url>
-    <loc>https://versionbravo.com/</loc>
-    <lastmod>2025-01-09</lastmod>
+    <loc>https://thevetted.vc/</loc>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://versionbravo.com/hero.png</image:loc>
-      <image:title>VBV - Veterans Backing Veterans</image:title>
-      <image:caption>VBV provides education, acceleration, and venture capital support to Combat Veteran Founders</image:caption>
+      <image:loc>https://thevetted.vc/hero.png</image:loc>
+      <image:title>The Vetted - Alphabet School</image:title>
+      <image:caption>The Vetted provides education, acceleration, and venture capital support to Combat Veteran Founders</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://versionbravo.com/logo.png</image:loc>
-      <image:title>Vetted Logo</image:title>
+      <image:loc>https://thevetted.vc/logo.png</image:loc>
+      <image:title>The Vetted Logo</image:title>
     </image:image>
   </url>
 

@@ -13,35 +13,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://versionbravo.com'),
-  title: "Vetted - Education | Acceleration | Investment",
-  description: "Vetted provides education, acceleration, and venture capital support to Combat Veteran Founders from the U.S. and Israel. Join Alpha-Bet School or apply for our exclusive accelerator program.",
+  metadataBase: new URL('https://thevetted.vc'),
+  title: "The Vetted - Alphabet School | Combat Veteran Entrepreneurship Education",
+  description: "The Vetted provides elite entrepreneurship education through Alphabet School for combat veterans. Comprehensive business training, mentorship, and pathway to The Vetted Accelerator program.",
   keywords: [
+    "the vetted",
+    "alphabet school", 
     "combat veterans",
-    "entrepreneurship",
-    "startup accelerator", 
+    "entrepreneurship education",
     "veteran founders",
-    "Alpha-Bet School",
-    "Version Bravo Accelerator",
     "military entrepreneurship",
-    "veteran business",
-    "startup funding",
-    "Israel US veterans"
+    "veteran business training",
+    "thevetted accelerator",
+    "vbv",
+    "thevetted.vc"
   ],
-  authors: [{ name: "Version Bravo" }],
-  creator: "Version Bravo",
-  publisher: "Version Bravo",
+  authors: [{ name: "The Vetted" }],
+  creator: "The Vetted",
+  publisher: "The Vetted",
   openGraph: {
-    title: "Vetted",
-    description: "Combat Veteran Entrepreneurship Platform - From Alpha-Bet School to Version Bravo Accelerator",
-    url: "https://versionbravo.com",
-    siteName: "Version Bravo",
+    title: "The Vetted - Alphabet School",
+    description: "Elite entrepreneurship education for combat veterans - From Alphabet School to The Vetted Accelerator",
+    url: "https://thevetted.vc",
+    siteName: "The Vetted",
     images: [
       {
         url: "/hero.png",
         width: 1200,
         height: 630,
-        alt: "Version Bravo - Combat Veterans to Founders",
+        alt: "The Vetted - Alphabet School for Combat Veterans",
       },
     ],
     locale: "en_US",
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vetted",
-    description: "Combat Veteran Entrepreneurship Platform - From Alpha-Bet School to Version Bravo Accelerator",
+    title: "The Vetted - Alphabet School",
+    description: "Elite entrepreneurship education for combat veterans - From Alphabet School to The Vetted Accelerator",
     images: ["/hero.png"],
   },
   robots: {
@@ -67,6 +67,20 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-site-verification-code-here',
   },
+  icons: {
+    icon: [
+      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon/favicon.ico', sizes: 'any' }
+    ],
+    apple: [
+      { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    other: [
+      { url: '/favicon/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' }
+    ]
+  },
 };
 
 export default function RootLayout({
@@ -77,14 +91,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Favicons */}
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
-        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        
         {/* Web App Meta */}
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
         <meta name="theme-color" content="#2563eb" />
         <meta name="msapplication-TileColor" content="#2563eb" />
         
