@@ -1,6 +1,9 @@
 "use client";
 import Image from "next/image";
 import { useState, useRef } from "react";
+import AdminLogin from '@/components/AdminLogin';
+import AdminSettings from '@/components/AdminSettings';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function Home() {
   const [expandedCard, setExpandedCard] = useState<'none' | 'accelerator' | 'alphaBet'>('none');
@@ -20,6 +23,8 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const acceleratorRef = useRef<HTMLDivElement>(null);
   const alphaBetRef = useRef<HTMLDivElement>(null);
+  
+  const { user } = useAuth();
 
   const handleToggle = (type: 'accelerator' | 'alphaBet') => {
     if (expandedCard === type) {
@@ -158,6 +163,13 @@ export default function Home() {
                 <a href="https://accelerator.thevetted.vc/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition-colors">ACCELERATOR</a>
                 <span>|</span>
                 <button onClick={() => setShowContactModal(true)} className="hover:text-blue-800 transition-colors cursor-pointer">CONTACT</button>
+                {user && (
+                  <>
+                    <span>|</span>
+                    <AdminSettings />
+                  </>
+                )}
+                <AdminLogin />
               </div>
 
               {/* Mobile Menu Button */}
@@ -182,6 +194,14 @@ export default function Home() {
                   <button onClick={() => { setShowContactModal(true); setMobileMenuOpen(false); }} className="hover:text-blue-800 transition-colors cursor-pointer text-left py-2">
                     CONTACT
                   </button>
+                  {user && (
+                    <div className="py-2">
+                      <AdminSettings />
+                    </div>
+                  )}
+                  <div className="flex justify-center py-2">
+                    <AdminLogin />
+                  </div>
                 </div>
               </div>
             )}
