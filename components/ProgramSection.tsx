@@ -1,7 +1,9 @@
 "use client";
+import { useState } from 'react';
 import { useAdminSettings } from '@/hooks/useAdminSettings';
 import { useProgramData } from '@/hooks/useProgramData';
 import { APPLICATION_URLS } from '@/constants/urls';
+import NotificationSignupForm from './NotificationSignupForm';
 
 interface ProgramSectionProps {
   type: 'ab' | 'accelerator';
@@ -26,6 +28,8 @@ export default function ProgramSection({
   expandedCard,
   onToggle
 }: ProgramSectionProps) {
+  const [showNotificationModal, setShowNotificationModal] = useState(false);
+  
   const { settings, loading: settingsLoading } = useAdminSettings();
   const { abData, acceleratorData, loading: dataLoading } = useProgramData();
 
@@ -69,6 +73,7 @@ export default function ProgramSection({
     if (mode === 'notify') {
       return (
         <button 
+          onClick={() => setShowNotificationModal(true)}
           className="block w-full bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 md:px-6 py-3 rounded font-medium transition-colors text-center text-sm md:text-base mb-4 md:mb-6"
           style={{ fontFamily: "'Gunplay', sans-serif" }}
         >
@@ -146,6 +151,12 @@ export default function ProgramSection({
       >
         {title} Website
       </a>
+      
+      <NotificationSignupForm
+        isOpen={showNotificationModal}
+        onClose={() => setShowNotificationModal(false)}
+        programType={type === 'ab' ? 'alpha-bet' : 'accelerator'}
+      />
     </article>
   );
 }
