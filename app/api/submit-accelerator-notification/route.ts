@@ -6,12 +6,11 @@ const MONDAY_API_TOKEN = process.env.MONDAY_API_TOKEN;
 const MONDAY_BOARD_ID = '10020417047';
 const MONDAY_GROUP_ID = 'topics';
 
-// Resend configuration - TODO: Different segments for Accelerator
+// Resend configuration
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const SEGMENT_IDS = [
-  // TODO: Accelerator-specific segment IDs
-  'accelerator-segment-id-1',
-  'accelerator-segment-id-2'
+  'd59f2521-c4fd-4b4f-8dd3-219453eccb36',
+  '2ff1c1f0-d36a-45d4-b858-2fa5dadc070e'
 ];
 
 export async function POST(request: NextRequest) {
@@ -47,8 +46,14 @@ export async function POST(request: NextRequest) {
     // Prepare column values for Monday.com
     const columnValues = JSON.stringify({
       "date4": new Date().toISOString().split('T')[0], // YYYY-MM-DD format
-      "phone_mkvnhsmr": phone,
-      "email_mkvned8h": email,
+      "phone_mkvnhsmr": {
+        "phone": phone,
+        "countryShortName": "US"
+      },
+      "email_mkvned8h": {
+        "email": email,
+        "text": email
+      },
       "text_mkvn179r": nationServed,
       "text_mkvn87rh": classServed,
       "text_mkvnmm57": referral || "",
