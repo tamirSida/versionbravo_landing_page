@@ -286,7 +286,7 @@ export default function Home() {
             {/* Application Information */}
             <section className="mb-16">
               <h2 className="sr-only">Our Programs</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:items-start">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 {/* Version Bravo Accelerator */}
                 <div ref={acceleratorRef}>
                   <ProgramSection

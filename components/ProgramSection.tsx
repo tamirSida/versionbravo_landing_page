@@ -111,7 +111,7 @@ export default function ProgramSection({
   };
 
   return (
-    <article className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow">
+    <article className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow min-h-[400px] flex flex-col">
       <h3 className="text-lg md:text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>
         {title}
       </h3>
@@ -134,6 +134,8 @@ export default function ProgramSection({
           {description}
         </div>
       </div>
+      
+      <div className="flex-1"></div>
       
       <a
         href={websiteUrl}
