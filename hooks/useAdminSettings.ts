@@ -30,7 +30,9 @@ export function useAdminSettings() {
           const data = settingsDoc.data() as AdminSettings;
           setSettings({
             ...data,
-            lastUpdated: data.lastUpdated?.toDate ? data.lastUpdated.toDate() : new Date(data.lastUpdated)
+            lastUpdated: data.lastUpdated && typeof data.lastUpdated === 'object' && 'toDate' in data.lastUpdated 
+              ? (data.lastUpdated as any).toDate() 
+              : new Date(data.lastUpdated)
           });
         }
         setLoading(false);

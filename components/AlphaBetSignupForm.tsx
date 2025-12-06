@@ -145,14 +145,14 @@ export default function AlphaBetSignupForm({ isOpen, onClose }: AlphaBetSignupFo
                 Thank You!
               </h3>
               <p className="text-gray-600">
-                We'll notify you when applications for the next Alpha-Bet cohort open.
+                We&apos;ll notify you when applications for the next Alpha-Bet cohort open.
               </p>
             </div>
           ) : (
             <>
               <p className="text-gray-700 mb-6 text-sm leading-relaxed">
                 Be the first to know when applications open for the next Alpha-Bet cohort. 
-                We'll send you an email notification with all the details.
+                We&apos;ll send you an email notification with all the details.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">

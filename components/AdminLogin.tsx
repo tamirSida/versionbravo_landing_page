@@ -25,7 +25,7 @@ export default function AdminLogin() {
       setShowLogin(false);
       setEmail('');
       setPassword('');
-    } catch (error: any) {
+    } catch (error: unknown) {
       setError('Invalid credentials');
     } finally {
       setIsLoading(false);

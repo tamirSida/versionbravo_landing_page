@@ -10,13 +10,15 @@ interface AcceleratorSignupFormProps {
 export default function AcceleratorSignupForm({ isOpen, onClose }: AcceleratorSignupFormProps) {
   const [formData, setFormData] = useState({
     fullName: '',
+    phoneCountryCode: '+1',
     phone: '',
     email: '',
     verifyEmail: '',
     nationServed: '',
     classServed: '',
     referral: '',
-    entrepreneurStatus: ''
+    entrepreneurStatus: '',
+    entrepreneurStatusOther: ''
   });
   
   const [emailError, setEmailError] = useState('');
@@ -83,6 +85,11 @@ export default function AcceleratorSignupForm({ isOpen, onClose }: AcceleratorSi
       setSubmitError('Entrepreneur status is required');
       return;
     }
+    
+    if (formData.entrepreneurStatus === 'Other' && !formData.entrepreneurStatusOther.trim()) {
+      setSubmitError('Please specify your entrepreneur status');
+      return;
+    }
 
     setIsSubmitting(true);
     setSubmitError('');
@@ -95,12 +102,14 @@ export default function AcceleratorSignupForm({ isOpen, onClose }: AcceleratorSi
         },
         body: JSON.stringify({
           fullName: formData.fullName.trim(),
-          phone: formData.phone.trim(),
+          phone: `${formData.phoneCountryCode}${formData.phone.trim()}`,
           email: formData.email.trim(),
           nationServed: formData.nationServed.trim(),
           classServed: formData.classServed.trim(),
           referral: formData.referral.trim(),
-          entrepreneurStatus: formData.entrepreneurStatus.trim()
+          entrepreneurStatus: formData.entrepreneurStatus === 'Other' 
+            ? formData.entrepreneurStatusOther.trim() 
+            : formData.entrepreneurStatus.trim()
         }),
       });
 
@@ -113,13 +122,15 @@ export default function AcceleratorSignupForm({ isOpen, onClose }: AcceleratorSi
       // Reset form
       setFormData({
         fullName: '',
+        phoneCountryCode: '+1',
         phone: '',
         email: '',
         verifyEmail: '',
         nationServed: '',
         classServed: '',
         referral: '',
-        entrepreneurStatus: ''
+        entrepreneurStatus: '',
+        entrepreneurStatusOther: ''
       });
 
       // Auto-close after success
@@ -164,14 +175,14 @@ export default function AcceleratorSignupForm({ isOpen, onClose }: AcceleratorSi
                 Thank You!
               </h3>
               <p className="text-gray-600">
-                We'll notify you when applications for the next Vetted Accelerator cohort open.
+                We&apos;ll notify you when applications for the next Vetted Accelerator cohort open.
               </p>
             </div>
           ) : (
             <>
               <p className="text-gray-700 mb-6 text-sm leading-relaxed">
                 Be the first to know when applications open for the next Vetted Accelerator cohort. 
-                We'll send you an email notification with all the details.
+                We&apos;ll send you an email notification with all the details.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -195,14 +206,43 @@ export default function AcceleratorSignupForm({ isOpen, onClose }: AcceleratorSi
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Phone Number *
                   </label>
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange('phone', e.target.value)}
-                    placeholder="Enter your phone number"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    disabled={isSubmitting}
-                  />
+                  <div className="flex gap-2">
+                    <select
+                      value={formData.phoneCountryCode}
+                      onChange={(e) => handleInputChange('phoneCountryCode', e.target.value)}
+                      className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-24"
+                      disabled={isSubmitting}
+                    >
+                      <option value="+1">🇺🇸 +1</option>
+                      <option value="+972">🇮🇱 +972</option>
+                      <option value="+44">🇬🇧 +44</option>
+                      <option value="+33">🇫🇷 +33</option>
+                      <option value="+49">🇩🇪 +49</option>
+                      <option value="+39">🇮🇹 +39</option>
+                      <option value="+34">🇪🇸 +34</option>
+                      <option value="+31">🇳🇱 +31</option>
+                      <option value="+32">🇧🇪 +32</option>
+                      <option value="+41">🇨🇭 +41</option>
+                      <option value="+43">🇦🇹 +43</option>
+                      <option value="+45">🇩🇰 +45</option>
+                      <option value="+46">🇸🇪 +46</option>
+                      <option value="+47">🇳🇴 +47</option>
+                      <option value="+358">🇫🇮 +358</option>
+                      <option value="+61">🇦🇺 +61</option>
+                      <option value="+64">🇳🇿 +64</option>
+                      <option value="+81">🇯🇵 +81</option>
+                      <option value="+82">🇰🇷 +82</option>
+                      <option value="+65">🇸🇬 +65</option>
+                    </select>
+                    <input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      placeholder="Phone number"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      disabled={isSubmitting}
+                    />
+                  </div>
                 </div>
 
                 {/* Email */}
@@ -312,6 +352,20 @@ export default function AcceleratorSignupForm({ isOpen, onClose }: AcceleratorSi
                     <option value="Corporate executive transitioning">Corporate executive transitioning</option>
                     <option value="Other">Other</option>
                   </select>
+                  
+                  {formData.entrepreneurStatus === 'Other' && (
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        value={formData.entrepreneurStatusOther}
+                        onChange={(e) => handleInputChange('entrepreneurStatusOther', e.target.value)}
+                        placeholder="Please specify (max 100 characters)"
+                        maxLength={100}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        disabled={isSubmitting}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Error Message */}
@@ -327,7 +381,7 @@ export default function AcceleratorSignupForm({ isOpen, onClose }: AcceleratorSi
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting || !emailsMatch || !formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim() || !formData.nationServed.trim() || !formData.classServed.trim() || !formData.entrepreneurStatus.trim()}
+                  disabled={isSubmitting || !emailsMatch || !formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim() || !formData.nationServed.trim() || !formData.classServed.trim() || !formData.entrepreneurStatus.trim() || (formData.entrepreneurStatus === 'Other' && !formData.entrepreneurStatusOther.trim())}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded cursor-pointer disabled:cursor-not-allowed disabled:bg-blue-400 transition-colors"
                 >
                   {isSubmitting ? (
