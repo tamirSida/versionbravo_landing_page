@@ -2,13 +2,12 @@
 
 import { useState } from 'react';
 
-interface NotificationSignupFormProps {
+interface AcceleratorSignupFormProps {
   isOpen: boolean;
   onClose: () => void;
-  programType: 'alpha-bet' | 'accelerator';
 }
 
-export default function NotificationSignupForm({ isOpen, onClose, programType }: NotificationSignupFormProps) {
+export default function AcceleratorSignupForm({ isOpen, onClose }: AcceleratorSignupFormProps) {
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -17,10 +16,7 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
     nationServed: '',
     classServed: '',
     referral: '',
-    entrepreneurStatus: '',
-    // Keep old fields for alpha-bet compatibility
-    countryOfService: '',
-    howDidYouHear: ''
+    entrepreneurStatus: ''
   });
   
   const [emailError, setEmailError] = useState('');
@@ -53,6 +49,11 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
       return;
     }
     
+    if (!formData.phone.trim()) {
+      setSubmitError('Phone number is required');
+      return;
+    }
+    
     if (!formData.email.trim()) {
       setSubmitError('Email is required');
       return;
@@ -68,56 +69,38 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
       return;
     }
     
-    if (programType === 'alpha-bet') {
-      if (!formData.countryOfService.trim()) {
-        setSubmitError('Country of service is required');
-        return;
-      }
-      
-      if (!formData.howDidYouHear.trim()) {
-        setSubmitError('Please tell us how you heard about Alpha-Bet');
-        return;
-      }
-    } else {
-      if (!formData.phone.trim()) {
-        setSubmitError('Phone number is required');
-        return;
-      }
-      
-      if (!formData.nationServed.trim()) {
-        setSubmitError('Nation served is required');
-        return;
-      }
-      
-      if (!formData.classServed.trim()) {
-        setSubmitError('Class served is required');
-        return;
-      }
-      
-      if (!formData.entrepreneurStatus.trim()) {
-        setSubmitError('Entrepreneur status is required');
-        return;
-      }
+    if (!formData.nationServed.trim()) {
+      setSubmitError('Nation served is required');
+      return;
+    }
+    
+    if (!formData.classServed.trim()) {
+      setSubmitError('Class served is required');
+      return;
+    }
+    
+    if (!formData.entrepreneurStatus.trim()) {
+      setSubmitError('Entrepreneur status is required');
+      return;
     }
 
     setIsSubmitting(true);
     setSubmitError('');
 
     try {
-      const endpoint = programType === 'alpha-bet' 
-        ? '/api/submit-alphabet-notification' 
-        : '/api/submit-accelerator-notification';
-        
-      const response = await fetch(endpoint, {
+      const response = await fetch('/api/submit-accelerator-notification', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           fullName: formData.fullName.trim(),
+          phone: formData.phone.trim(),
           email: formData.email.trim(),
-          countryOfService: formData.countryOfService.trim(),
-          howDidYouHear: formData.howDidYouHear.trim()
+          nationServed: formData.nationServed.trim(),
+          classServed: formData.classServed.trim(),
+          referral: formData.referral.trim(),
+          entrepreneurStatus: formData.entrepreneurStatus.trim()
         }),
       });
 
@@ -130,10 +113,13 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
       // Reset form
       setFormData({
         fullName: '',
+        phone: '',
         email: '',
         verifyEmail: '',
-        countryOfService: '',
-        howDidYouHear: ''
+        nationServed: '',
+        classServed: '',
+        referral: '',
+        entrepreneurStatus: ''
       });
 
       // Auto-close after success
@@ -152,15 +138,13 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
 
   if (!isOpen) return null;
 
-  const programName = programType === 'alpha-bet' ? 'Alpha-Bet' : 'Vetted Accelerator';
-
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-hidden">
         {/* Header */}
         <div className="bg-blue-600 text-white p-4 flex justify-between items-center">
           <h2 className="text-lg font-semibold" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-            Get Notified
+            Get Notified - Vetted Accelerator
           </h2>
           <button
             onClick={onClose}
@@ -180,13 +164,13 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
                 Thank You!
               </h3>
               <p className="text-gray-600">
-                We'll notify you when applications for the next {programName} cohort open.
+                We'll notify you when applications for the next Vetted Accelerator cohort open.
               </p>
             </div>
           ) : (
             <>
               <p className="text-gray-700 mb-6 text-sm leading-relaxed">
-                Be the first to know when applications open for the next {programName} cohort. 
+                Be the first to know when applications open for the next Vetted Accelerator cohort. 
                 We'll send you an email notification with all the details.
               </p>
 
@@ -201,6 +185,21 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
                     value={formData.fullName}
                     onChange={(e) => handleInputChange('fullName', e.target.value)}
                     placeholder="Enter your full name"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                {/* Phone Number */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
+                    placeholder="Enter your phone number"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     disabled={isSubmitting}
                   />
@@ -250,34 +249,69 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
                   )}
                 </div>
 
-                {/* Country of Service */}
+                {/* Nation Served */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Country of Service *
+                    Nation Served *
                   </label>
                   <input
                     type="text"
-                    value={formData.countryOfService}
-                    onChange={(e) => handleInputChange('countryOfService', e.target.value)}
+                    value={formData.nationServed}
+                    onChange={(e) => handleInputChange('nationServed', e.target.value)}
                     placeholder="e.g., United States, Israel"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     disabled={isSubmitting}
                   />
                 </div>
 
-                {/* How did you hear about the program */}
+                {/* Class Served */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    How did you hear about {programName}? *
+                    Class Served *
                   </label>
-                  <textarea
-                    value={formData.howDidYouHear}
-                    onChange={(e) => handleInputChange('howDidYouHear', e.target.value)}
-                    placeholder={`Tell us how you discovered ${programName}...`}
-                    rows={3}
+                  <input
+                    type="text"
+                    value={formData.classServed}
+                    onChange={(e) => handleInputChange('classServed', e.target.value)}
+                    placeholder="e.g., Navy SEALs, Rangers, Paratroopers"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     disabled={isSubmitting}
                   />
+                </div>
+
+                {/* Referral (Optional) */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Referral (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.referral}
+                    onChange={(e) => handleInputChange('referral', e.target.value)}
+                    placeholder="Who referred you to us?"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                {/* Entrepreneur Status */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Entrepreneur Status *
+                  </label>
+                  <select
+                    value={formData.entrepreneurStatus}
+                    onChange={(e) => handleInputChange('entrepreneurStatus', e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    disabled={isSubmitting}
+                  >
+                    <option value="">Select your status</option>
+                    <option value="First-time founder">First-time founder</option>
+                    <option value="Serial entrepreneur">Serial entrepreneur</option>
+                    <option value="Aspiring entrepreneur">Aspiring entrepreneur</option>
+                    <option value="Corporate executive transitioning">Corporate executive transitioning</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
 
                 {/* Error Message */}
@@ -293,7 +327,7 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting || !emailsMatch || Object.values(formData).some(v => !v.trim())}
+                  disabled={isSubmitting || !emailsMatch || !formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim() || !formData.nationServed.trim() || !formData.classServed.trim() || !formData.entrepreneurStatus.trim()}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded cursor-pointer disabled:cursor-not-allowed disabled:bg-blue-400 transition-colors"
                 >
                   {isSubmitting ? (

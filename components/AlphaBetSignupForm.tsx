@@ -2,23 +2,16 @@
 
 import { useState } from 'react';
 
-interface NotificationSignupFormProps {
+interface AlphaBetSignupFormProps {
   isOpen: boolean;
   onClose: () => void;
-  programType: 'alpha-bet' | 'accelerator';
 }
 
-export default function NotificationSignupForm({ isOpen, onClose, programType }: NotificationSignupFormProps) {
+export default function AlphaBetSignupForm({ isOpen, onClose }: AlphaBetSignupFormProps) {
   const [formData, setFormData] = useState({
     fullName: '',
-    phone: '',
     email: '',
     verifyEmail: '',
-    nationServed: '',
-    classServed: '',
-    referral: '',
-    entrepreneurStatus: '',
-    // Keep old fields for alpha-bet compatibility
     countryOfService: '',
     howDidYouHear: ''
   });
@@ -68,47 +61,21 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
       return;
     }
     
-    if (programType === 'alpha-bet') {
-      if (!formData.countryOfService.trim()) {
-        setSubmitError('Country of service is required');
-        return;
-      }
-      
-      if (!formData.howDidYouHear.trim()) {
-        setSubmitError('Please tell us how you heard about Alpha-Bet');
-        return;
-      }
-    } else {
-      if (!formData.phone.trim()) {
-        setSubmitError('Phone number is required');
-        return;
-      }
-      
-      if (!formData.nationServed.trim()) {
-        setSubmitError('Nation served is required');
-        return;
-      }
-      
-      if (!formData.classServed.trim()) {
-        setSubmitError('Class served is required');
-        return;
-      }
-      
-      if (!formData.entrepreneurStatus.trim()) {
-        setSubmitError('Entrepreneur status is required');
-        return;
-      }
+    if (!formData.countryOfService.trim()) {
+      setSubmitError('Country of service is required');
+      return;
+    }
+    
+    if (!formData.howDidYouHear.trim()) {
+      setSubmitError('Please tell us how you heard about Alpha-Bet');
+      return;
     }
 
     setIsSubmitting(true);
     setSubmitError('');
 
     try {
-      const endpoint = programType === 'alpha-bet' 
-        ? '/api/submit-alphabet-notification' 
-        : '/api/submit-accelerator-notification';
-        
-      const response = await fetch(endpoint, {
+      const response = await fetch('/api/submit-alphabet-notification', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -152,15 +119,13 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
 
   if (!isOpen) return null;
 
-  const programName = programType === 'alpha-bet' ? 'Alpha-Bet' : 'Vetted Accelerator';
-
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-hidden">
         {/* Header */}
         <div className="bg-blue-600 text-white p-4 flex justify-between items-center">
           <h2 className="text-lg font-semibold" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-            Get Notified
+            Get Notified - Alpha-Bet
           </h2>
           <button
             onClick={onClose}
@@ -180,13 +145,13 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
                 Thank You!
               </h3>
               <p className="text-gray-600">
-                We'll notify you when applications for the next {programName} cohort open.
+                We'll notify you when applications for the next Alpha-Bet cohort open.
               </p>
             </div>
           ) : (
             <>
               <p className="text-gray-700 mb-6 text-sm leading-relaxed">
-                Be the first to know when applications open for the next {programName} cohort. 
+                Be the first to know when applications open for the next Alpha-Bet cohort. 
                 We'll send you an email notification with all the details.
               </p>
 
@@ -268,12 +233,12 @@ export default function NotificationSignupForm({ isOpen, onClose, programType }:
                 {/* How did you hear about the program */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    How did you hear about {programName}? *
+                    How did you hear about Alpha-Bet? *
                   </label>
                   <textarea
                     value={formData.howDidYouHear}
                     onChange={(e) => handleInputChange('howDidYouHear', e.target.value)}
-                    placeholder={`Tell us how you discovered ${programName}...`}
+                    placeholder="Tell us how you discovered Alpha-Bet..."
                     rows={3}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     disabled={isSubmitting}

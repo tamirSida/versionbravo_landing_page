@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { useAdminSettings } from '@/hooks/useAdminSettings';
 import { useProgramData } from '@/hooks/useProgramData';
 import { APPLICATION_URLS } from '@/constants/urls';
-import NotificationSignupForm from './NotificationSignupForm';
+import AlphaBetSignupForm from './AlphaBetSignupForm';
+import AcceleratorSignupForm from './AcceleratorSignupForm';
 
 interface ProgramSectionProps {
   type: 'ab' | 'accelerator';
@@ -158,11 +159,17 @@ export default function ProgramSection({
         {title} Website
       </a>
       
-      <NotificationSignupForm
-        isOpen={showNotificationModal}
-        onClose={() => setShowNotificationModal(false)}
-        programType={type === 'ab' ? 'alpha-bet' : 'accelerator'}
-      />
+      {type === 'ab' ? (
+        <AlphaBetSignupForm
+          isOpen={showNotificationModal}
+          onClose={() => setShowNotificationModal(false)}
+        />
+      ) : (
+        <AcceleratorSignupForm
+          isOpen={showNotificationModal}
+          onClose={() => setShowNotificationModal(false)}
+        />
+      )}
     </article>
   );
 }

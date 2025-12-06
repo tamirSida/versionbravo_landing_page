@@ -2,10 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 const MONDAY_API_URL = 'https://api.monday.com/v2';
-// TODO: These will be different for Accelerator
 const MONDAY_API_TOKEN = process.env.MONDAY_API_TOKEN;
-const MONDAY_BOARD_ID = process.env.ACCELERATOR_MONDAY_BOARD_ID;
-const MONDAY_GROUP_ID = process.env.ACCELERATOR_MONDAY_GROUP_ID;
+const MONDAY_BOARD_ID = '10020417047';
+const MONDAY_GROUP_ID = 'topics';
 
 // Resend configuration - TODO: Different segments for Accelerator
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
@@ -18,10 +17,10 @@ const SEGMENT_IDS = [
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { fullName, email, countryOfService, howDidYouHear } = body;
+    const { fullName, phone, email, nationServed, classServed, referral, entrepreneurStatus } = body;
 
     // Validation
-    if (!fullName || !email || !countryOfService || !howDidYouHear) {
+    if (!fullName || !phone || !email || !nationServed || !classServed || !entrepreneurStatus) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -46,12 +45,14 @@ export async function POST(request: NextRequest) {
     }
 
     // Prepare column values for Monday.com
-    // TODO: Update column IDs for Accelerator board
     const columnValues = JSON.stringify({
       "date4": new Date().toISOString().split('T')[0], // YYYY-MM-DD format
-      "text_column_email": email, // TODO: Replace with actual column ID
-      "text_column_country": countryOfService, // TODO: Replace with actual column ID  
-      "text_column_source": howDidYouHear // TODO: Replace with actual column ID
+      "phone_mkvnhsmr": phone,
+      "email_mkvned8h": email,
+      "text_mkvn179r": nationServed,
+      "text_mkvn87rh": classServed,
+      "text_mkvnmm57": referral || "",
+      "text_mkvnvzw1": entrepreneurStatus
     });
 
     // GraphQL mutation for Monday.com
