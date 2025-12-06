@@ -79,7 +79,7 @@ export default function ProgramSection({
             <div className="mt-2">
               <button
                 onClick={() => setShowNotificationModal(true)}
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors cursor-pointer"
               >
                 Notify Me
               </button>
