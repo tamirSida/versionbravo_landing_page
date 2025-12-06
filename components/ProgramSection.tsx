@@ -72,13 +72,20 @@ export default function ProgramSection({
 
     if (mode === 'notify') {
       return (
-        <button 
-          onClick={() => setShowNotificationModal(true)}
-          className="block w-full bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 md:px-6 py-3 rounded font-medium transition-colors text-center text-sm md:text-base mb-4 md:mb-6"
-          style={{ fontFamily: "'Gunplay', sans-serif" }}
-        >
-          Notify me when applications open
-        </button>
+        <div className="mb-4 md:mb-6 text-sm text-gray-600">
+          <div className="mb-1">Launch: {defaultLaunchText}</div>
+          <div className="mb-1">
+            Applications: Click to get notified when applications open
+            <div className="mt-2">
+              <button
+                onClick={() => setShowNotificationModal(true)}
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors"
+              >
+                Notify Me
+              </button>
+            </div>
+          </div>
+        </div>
       );
     }
 
