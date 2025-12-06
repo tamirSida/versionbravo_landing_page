@@ -69,7 +69,7 @@ export default function ProgramSection({
     if (mode === 'notify') {
       return (
         <button 
-          className="block w-full bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 md:px-6 py-3 rounded font-semibold transition-colors text-center text-sm md:text-base mb-4 md:mb-6"
+          className="block w-full bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 md:px-6 py-3 rounded font-medium transition-colors text-center text-sm md:text-base mb-4 md:mb-6"
           style={{ fontFamily: "'Gunplay', sans-serif" }}
         >
           Notify me when applications open

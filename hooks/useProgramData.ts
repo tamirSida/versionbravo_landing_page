@@ -20,6 +20,14 @@ interface HeroSection {
   order: number;
 }
 
+interface CachedData {
+  data: { abData: ProgramData | null; acceleratorData: ProgramData | null };
+  timestamp: number;
+}
+
+// Memory cache with 30-minute TTL
+const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes in milliseconds
+let programDataCache: CachedData | null = null;
 
 export function useProgramData() {
   const [abData, setAbData] = useState<ProgramData | null>(null);
@@ -30,6 +38,18 @@ export function useProgramData() {
   useEffect(() => {
     const fetchProgramData = async () => {
       try {
+        // Check if we have valid cached data
+        const now = Date.now();
+        if (programDataCache && (now - programDataCache.timestamp) < CACHE_DURATION) {
+          console.log('Using cached program data');
+          setAbData(programDataCache.data.abData);
+          setAcceleratorData(programDataCache.data.acceleratorData);
+          setLoading(false);
+          return;
+        }
+
+        console.log('Fetching fresh program data from Firebase');
+
         // Initialize Firebase apps for external projects
         const alphabetApp = initializeApp(ALPHABET_FIREBASE_CONFIG, 'alphabet');
         const alphabetDb = getFirestore(alphabetApp);
@@ -87,6 +107,13 @@ export function useProgramData() {
           }
         }
 
+        // Cache the fetched data
+        const fetchedData = { abData, acceleratorData };
+        programDataCache = {
+          data: fetchedData,
+          timestamp: Date.now()
+        };
+
         setLoading(false);
       } catch (err) {
         console.error('Failed to fetch program data:', err);
@@ -99,4 +126,10 @@ export function useProgramData() {
   }, []);
 
   return { abData, acceleratorData, loading, error };
+}
+
+// Optional: Function to manually clear cache (useful for admin updates)
+export function clearProgramDataCache() {
+  programDataCache = null;
+  console.log('Program data cache cleared');
 }
