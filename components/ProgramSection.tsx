@@ -147,7 +147,6 @@ export default function ProgramSection({
         </div>
       </div>
       
-      <div className="flex-1"></div>
       
       <a
         href={websiteUrl}
