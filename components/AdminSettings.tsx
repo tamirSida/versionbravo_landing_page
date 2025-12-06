@@ -1,25 +1,14 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { APPLICATION_URLS } from '@/constants/urls';
-import { useProgramData } from '@/hooks/useProgramData';
-
-interface ProgramData {
-  app_start_date: Date;
-  app_end_date: Date;
-  program_start_date: Date;
-}
-
-type ViewMode = 'notify' | 'status';
+import { useAdminSettings } from '@/hooks/useAdminSettings';
 
 export default function AdminSettings() {
   const [showSettings, setShowSettings] = useState(false);
   const [activeTab, setActiveTab] = useState<'ab' | 'accelerator'>('ab');
-  const [abViewMode, setAbViewMode] = useState<ViewMode>('notify');
-  const [acceleratorViewMode, setAcceleratorViewMode] = useState<ViewMode>('notify');
   
   const { user, signOutUser } = useAuth();
-  const { abData, acceleratorData, loading, error } = useProgramData();
+  const { settings, loading, saving, error, saveSettings } = useAdminSettings();
 
   if (!user) {
     return null;
@@ -30,75 +19,12 @@ export default function AdminSettings() {
     setShowSettings(false);
   };
 
-  const getApplicationStatus = (data: ProgramData | null) => {
-    if (!data) return { text: 'Loading...', showButton: false };
-    
-    const now = new Date();
-    const { app_start_date, app_end_date } = data;
-    
-    if (now < app_start_date) {
-      return {
-        text: `Applications will open on ${app_start_date.toLocaleDateString()}`,
-        showButton: false
-      };
-    } else if (now >= app_start_date && now <= app_end_date) {
-      return {
-        text: 'Applications are open',
-        showButton: true
-      };
-    } else {
-      return {
-        text: 'Applications are currently closed',
-        showButton: false
-      };
-    }
+  const handleSaveAB = async () => {
+    await saveSettings({ abMode: settings.abMode });
   };
 
-  const renderProgramContent = (
-    viewMode: ViewMode,
-    programData: ProgramData | null,
-    applicationUrl: string,
-    defaultLaunchText: string,
-    defaultApplicationText: string
-  ) => {
-    if (viewMode === 'notify') {
-      return (
-        <div className="space-y-4">
-          <div className="text-sm text-gray-600">
-            <div className="mb-1">{defaultLaunchText}</div>
-            <div className="mb-1">{defaultApplicationText}</div>
-          </div>
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-medium transition-colors">
-            Notify me when applications open
-          </button>
-        </div>
-      );
-    }
-
-    if (!programData) {
-      return <div className="text-gray-500">Loading program data...</div>;
-    }
-
-    const applicationStatus = getApplicationStatus(programData);
-
-    return (
-      <div className="space-y-4">
-        <div className="text-sm text-gray-600">
-          <div className="mb-1">Launch: {programData.program_start_date.toLocaleDateString()}</div>
-          <div className="mb-1">Applications: {applicationStatus.text}</div>
-        </div>
-        {applicationStatus.showButton && (
-          <a
-            href={applicationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-medium transition-colors text-center"
-          >
-            Apply Now
-          </a>
-        )}
-      </div>
-    );
+  const handleSaveAccelerator = async () => {
+    await saveSettings({ acceleratorMode: settings.acceleratorMode });
   };
 
   return (
@@ -156,7 +82,17 @@ export default function AdminSettings() {
 
               {/* Tab Content */}
               <div className="space-y-6">
-                {activeTab === 'ab' && (
+                {loading && (
+                  <div className="text-center text-gray-500">Loading settings...</div>
+                )}
+
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded">
+                    {error}
+                  </div>
+                )}
+
+                {!loading && activeTab === 'ab' && (
                   <div>
                     <h4 className="text-lg font-semibold text-black mb-4">Alpha-Bet School</h4>
                     
@@ -167,8 +103,8 @@ export default function AdminSettings() {
                           <input
                             type="radio"
                             name="ab-mode"
-                            checked={abViewMode === 'notify'}
-                            onChange={() => setAbViewMode('notify')}
+                            checked={settings.abMode === 'notify'}
+                            onChange={() => saveSettings({ abMode: 'notify' })}
                             className="mr-2"
                           />
                           Notify Me
@@ -177,8 +113,8 @@ export default function AdminSettings() {
                           <input
                             type="radio"
                             name="ab-mode"
-                            checked={abViewMode === 'status'}
-                            onChange={() => setAbViewMode('status')}
+                            checked={settings.abMode === 'status'}
+                            onChange={() => saveSettings({ abMode: 'status' })}
                             className="mr-2"
                           />
                           Application Status
@@ -186,18 +122,23 @@ export default function AdminSettings() {
                       </div>
                     </div>
 
-                    {/* Content */}
-                    {renderProgramContent(
-                      abViewMode,
-                      abData,
-                      APPLICATION_URLS.ALPHA_BET,
-                      'Launch: November 2025',
-                      'Applications: Open Now'
+                    {/* Current Status */}
+                    <div className="bg-gray-50 p-4 rounded mb-4">
+                      <p className="text-sm text-gray-700">
+                        <strong>Current Display Mode:</strong> {settings.abMode === 'notify' ? 'Notify Me' : 'Application Status'}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Last updated: {settings.lastUpdated.toLocaleString()}
+                      </p>
+                    </div>
+
+                    {saving && (
+                      <div className="text-blue-600 text-sm">Saving changes...</div>
                     )}
                   </div>
                 )}
 
-                {activeTab === 'accelerator' && (
+                {!loading && activeTab === 'accelerator' && (
                   <div>
                     <h4 className="text-lg font-semibold text-black mb-4">Vetted Accelerator</h4>
                     
@@ -208,8 +149,8 @@ export default function AdminSettings() {
                           <input
                             type="radio"
                             name="accelerator-mode"
-                            checked={acceleratorViewMode === 'notify'}
-                            onChange={() => setAcceleratorViewMode('notify')}
+                            checked={settings.acceleratorMode === 'notify'}
+                            onChange={() => saveSettings({ acceleratorMode: 'notify' })}
                             className="mr-2"
                           />
                           Notify Me
@@ -218,8 +159,8 @@ export default function AdminSettings() {
                           <input
                             type="radio"
                             name="accelerator-mode"
-                            checked={acceleratorViewMode === 'status'}
-                            onChange={() => setAcceleratorViewMode('status')}
+                            checked={settings.acceleratorMode === 'status'}
+                            onChange={() => saveSettings({ acceleratorMode: 'status' })}
                             className="mr-2"
                           />
                           Application Status
@@ -227,13 +168,18 @@ export default function AdminSettings() {
                       </div>
                     </div>
 
-                    {/* Content */}
-                    {renderProgramContent(
-                      acceleratorViewMode,
-                      acceleratorData,
-                      APPLICATION_URLS.ACCELERATOR,
-                      'Launch: March 2026',
-                      'Applications: December 2025'
+                    {/* Current Status */}
+                    <div className="bg-gray-50 p-4 rounded mb-4">
+                      <p className="text-sm text-gray-700">
+                        <strong>Current Display Mode:</strong> {settings.acceleratorMode === 'notify' ? 'Notify Me' : 'Application Status'}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Last updated: {settings.lastUpdated.toLocaleString()}
+                      </p>
+                    </div>
+
+                    {saving && (
+                      <div className="text-blue-600 text-sm">Saving changes...</div>
                     )}
                   </div>
                 )}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 import AdminLogin from '@/components/AdminLogin';
 import AdminSettings from '@/components/AdminSettings';
+import ProgramSection from '@/components/ProgramSection';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function Home() {
@@ -287,66 +288,34 @@ export default function Home() {
               <h2 className="sr-only">Our Programs</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:items-start">
                 {/* Version Bravo Accelerator */}
-                <article ref={acceleratorRef} className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow">
-                  <h3 className="text-lg md:text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Vetted Accelerator</h3>
-                  <p className="text-blue-600 mb-4 font-semibold text-sm md:text-base">For the High-Growth Startup</p>
-                  
-                  <div className="mb-4 md:mb-6 text-sm text-gray-600">
-                    <div className="mb-1">Launch: March 2026</div>
-                    <div className="mb-1">Applications: December 2025</div>
-                  </div>
-                  
-                  <button 
-                    onClick={() => handleToggle('accelerator')}
-                    className="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 flex items-center cursor-pointer"
-                  >
-                    {expandedCard === 'accelerator' ? 'Show Less' : 'Read More'}
-                    <i className={`fas fa-chevron-${expandedCard === 'accelerator' ? 'up' : 'down'} ml-2 transition-transform duration-200`}></i>
-                  </button>
-                  
-                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    expandedCard === 'accelerator' ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="bg-gray-50 rounded p-3 md:p-4 text-gray-700 text-sm leading-relaxed">
-                      A venture accelerator investing exclusively in startups founded by elite U.S. and Israeli special operations veterans. This accelerator is our elite program for early-stage, venture-track companies ready to scale. The 10-week program provides direct investment, targeted mentorship from leading entrepreneurs, and direct access to a network of investors and industry experts. The experience starts and ends with two immersive, two-week bootcamps - one in Israel and one in the U.S.
-                    </div>
-                  </div>
-                  
-                  <a href="https://accelerator.thevetted.vc/" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-center text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                    Accelerator Website
-                  </a>
-                </article>
+                <div ref={acceleratorRef}>
+                  <ProgramSection
+                    type="accelerator"
+                    title="Vetted Accelerator"
+                    subtitle="For the High-Growth Startup"
+                    defaultLaunchText="Launch: March 2026"
+                    defaultApplicationText="Applications: December 2025"
+                    description="A venture accelerator investing exclusively in startups founded by elite U.S. and Israeli special operations veterans. This accelerator is our elite program for early-stage, venture-track companies ready to scale. The 10-week program provides direct investment, targeted mentorship from leading entrepreneurs, and direct access to a network of investors and industry experts. The experience starts and ends with two immersive, two-week bootcamps - one in Israel and one in the U.S."
+                    websiteUrl="https://accelerator.thevetted.vc/"
+                    expandedCard={expandedCard}
+                    onToggle={() => handleToggle('accelerator')}
+                  />
+                </div>
 
                 {/* Alpha-Bet Program */}
-                <article ref={alphaBetRef} className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow">
-                  <h3 className="text-lg md:text-xl font-bold text-black mb-2" style={{ fontFamily: "'Gunplay', sans-serif" }}>Alpha-Bet School</h3>
-                  <p className="text-blue-600 mb-4 font-semibold text-sm md:text-base">For the Aspiring Founder</p>
-                  
-                  <div className="mb-4 md:mb-6 text-sm text-gray-600">
-                    <div className="mb-1">Launch: November 2025</div>
-                    <div className="mb-1">Applications: Open Now</div>
-                  </div>
-                  
-                  <button 
-                    onClick={() => handleToggle('alphaBet')}
-                    className="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 flex items-center cursor-pointer"
-                  >
-                    {expandedCard === 'alphaBet' ? 'Show Less' : 'Read More'}
-                    <i className={`fas fa-chevron-${expandedCard === 'alphaBet' ? 'up' : 'down'} ml-2 transition-transform duration-200`}></i>
-                  </button>
-                  
-                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    expandedCard === 'alphaBet' ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="bg-gray-50 rounded p-3 md:p-4 text-gray-700 text-sm leading-relaxed">
-                      The Alpha-Bet program is purpose-built for combat veterans at the very start of their entrepreneurial journey, whether they have a business idea or are starting from a blank slate. This 10-week online entrepreneurship school provides a hands-on roadmap from concept to company, featuring expert-led workshops, collaborative projects, and culminating in a final pitch to real investors. Our curriculum ranges from ideation strategies to customer discovery to storytelling and business plan formulation.
-                    </div>
-                  </div>
-                  
-                  <a href="https://alphabet.vbv.vc" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-3 rounded font-semibold transition-colors text-center text-sm md:text-base" style={{ fontFamily: "'Gunplay', sans-serif" }}>
-                    Alpha-Bet Website
-                  </a>
-                </article>
+                <div ref={alphaBetRef}>
+                  <ProgramSection
+                    type="ab"
+                    title="Alpha-Bet School"
+                    subtitle="For the Aspiring Founder"
+                    defaultLaunchText="Launch: November 2025"
+                    defaultApplicationText="Applications: Open Now"
+                    description="The Alpha-Bet program is purpose-built for combat veterans at the very start of their entrepreneurial journey, whether they have a business idea or are starting from a blank slate. This 10-week online entrepreneurship school provides a hands-on roadmap from concept to company, featuring expert-led workshops, collaborative projects, and culminating in a final pitch to real investors. Our curriculum ranges from ideation strategies to customer discovery to storytelling and business plan formulation."
+                    websiteUrl="https://alphabet.vbv.vc"
+                    expandedCard={expandedCard}
+                    onToggle={() => handleToggle('alphaBet')}
+                  />
+                </div>
               </div>
               
             </section>
